@@ -1,0 +1,3 @@
+Puppet files for my computers.
+
+Nothing too fancy, most things are fairly homogenous.
