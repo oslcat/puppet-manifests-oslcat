@@ -1,0 +1,65 @@
+" noop
+": automatic syntax highlighting
+set nocompatible " Vim defaults, instead of vi
+filetype plugin indent on
+syntax on
+colorscheme zellner
+
+" Local vimrc files
+set exrc                    " Enable per directory .vimrc files
+set secure                  " Disable unsafe commands in local .vimrc files
+
+" make searching nicer
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set shiftwidth=4            " Tabs for auto indent
+set tabstop=4               " Tabs for the tab character
+set cindent                 " Indent like Ck
+set autoindent              " Auto indent
+set smartindent             " Intelligently
+set cinkeys=0{,0},:,0#,!^F
+set smarttab
+set expandtab               " Tabs instead of spaces
+set magic                   " For regular expressions
+nma <leader>e :set lbr!<CR> " Break on words, not chars
+
+" line numbers toggle
+nma <leader>n :set invnumber<CR>
+" wrapping toggle
+nma <leader>w :set wrap!<CR>
+" remove search highlights
+nma <leader>h :noh<CR>
+
+set hidden
+set history=1000
+set wildmenu
+set wildmode=list:longest
+
+set title
+set scrolloff=3
+set ruler
+
+" this makes pasting actually work with indenting
+set pastetoggle=<F2>
+" quick rot-13
+noremap <Leader>r ggg?G``
+" Spell checking on command
+if has("spell")
+    " toggle spelling
+    map <F7> :set spell!<CR><Bar>:echo "Spell Check: " .strpart("OffOn", 3 * &spell, 3)<CR>
+endif
+
+
+" Auto word count, stripping away latex if needed
+map <F3> :w !detex \| wc -w<CR>
+" Make
+map <F8> :w<CR> :make<CR>
+" You know you like compiling LaTeX
+map <F9> :w<CR> :! pdflatex %<CR>
+
+" Show trailing whitepace and spaces before a tab:
+:highlight ExtraWhitespace  ctermbg=red guibg=red
+autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/ containedin=ALL
+autocmd BufWinLeave * call clearmatches()
