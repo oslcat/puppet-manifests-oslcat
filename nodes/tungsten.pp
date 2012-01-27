@@ -4,12 +4,8 @@ node "tungsten.electricgrey.com" {
     }
 
     include vim
-#    include zsh
-#    include conky
-#    include git
+    include conky
 
     vim::config { "mythmon": }
-#    zsh::config { "mythmon": }
-#    conky::config { "mythmon": }
-#    git::config { "mythmon": }
+    conky::config { "mythmon": }
 }

@@ -1,0 +1,47 @@
+# .conkyrc
+
+own_window yes
+own_window_type dock
+own_window_transparent no
+own_window_hints undecorated,sticky,skip_taskbar,skip_pager,below
+double_buffer yes
+background yes
+
+# Update interval in seconds
+update_interval 1
+
+# Draw shades?
+draw_shades yes
+
+# Text stuff
+draw_outline no # amplifies text if yes
+draw_borders no
+uppercase no # set to yes if you want all text to be in uppercase
+text_buffer_size 2048
+
+# borders
+border_margin 0
+border_width 0
+stippled_borders 0
+
+# Default colors and also border colors, grey90 == #e5e5e5
+color0 E0E0FF # Almost white
+color1 808080 # Grey
+color2 88AAFF # blue
+default_color E0E0FF
+
+use_xft yes
+font Dina:size=10
+
+# Text  alignment
+alignment bm
+
+# stuff after 'TEXT' will be formatted on screen
+TEXT
+${time %H:%M:%S, %b %d} ${color1}|| \
+${color}cpu ${cpu}% ${cpugraph 12,48} ${color1}|| \
+${color}memory ${mem} ${color1}|| \
+${color}power: ${battery} ${color1}|| \
+${color}wifi ${addr eth1} \
+${color}(${wireless_essid eth1}) \
+${color}${downspeedgraph eth1 12,48 -l} ${upspeedgraph eth1 12,48 -l} ${color1}
