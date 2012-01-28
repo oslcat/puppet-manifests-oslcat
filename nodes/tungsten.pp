@@ -1,11 +1,11 @@
 node "tungsten.electricgrey.com" {
-    file { "/tmp/puppet_was_here":
-        ensure => present,
-    }
-
     include vim
     include conky
+    include git
+    include zsh
 
     vim::config { "mythmon": }
     conky::config { "mythmon": }
+    git::config { "mythmon": }
+    zsh::config { "mythmon": }
 }
