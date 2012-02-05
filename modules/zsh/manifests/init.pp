@@ -8,11 +8,14 @@ class zsh {
 define zsh::user_config ($home="/home/${title}") {
 
     file {
-        "${title}-zshrc":
+        "${title}_zsh_dir}":
+            path    => "${home}/.zsh",
+            ensure  => directory;
+        "${title}_zshrc":
             path    => "${home}/.zshrc",
             ensure  => present,
             content => template("zsh/zshrc.erb");
-        "${title}-zshrc.d":
+        "${title}_zshrc.d":
             path    => "${home}/.zshrc.d",
             ensure  => directory;
     }
