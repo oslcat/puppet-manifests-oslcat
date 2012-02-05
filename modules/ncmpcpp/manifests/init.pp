@@ -1,5 +1,5 @@
 class ncmpcpp {
     package { "ncmpcpp":
-        ensure => present,
+        ensure => latest,
     }
 }

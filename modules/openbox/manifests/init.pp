@@ -1,5 +1,5 @@
 class openbox {
     package { "openbox":
-        ensure => present,
+        ensure => latest,
     }
 }

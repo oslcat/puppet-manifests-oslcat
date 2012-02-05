@@ -1,6 +1,6 @@
 class puppet {
     package { "puppet":
-        ensure => installed,
+        ensure => latest,
         #provider => "yaourt",
     }
 }

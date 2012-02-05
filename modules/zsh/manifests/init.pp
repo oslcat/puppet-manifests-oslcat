@@ -1,6 +1,6 @@
 class zsh {
     package { "zsh":
-        ensure => present,
+        ensure => latest,
     }
 }
 
