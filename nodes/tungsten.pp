@@ -1,6 +1,8 @@
 node "tungsten.electricgrey.com" {
     include os
 
+    include pm
+
     include puppet
     include puppet::fix_it
 
