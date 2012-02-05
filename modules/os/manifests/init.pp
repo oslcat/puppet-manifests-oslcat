@@ -15,4 +15,9 @@ define os::user_config($home="/home/${title}") {
             }
         }
     }
+
+    @file { "${title}-dot-config":
+        path => "${home}/.config",
+        ensure => directory;
+    }
 }

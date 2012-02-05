@@ -1,8 +1,8 @@
 class puppet {
-    package { "puppet":
-        ensure => latest,
-        #provider => "yaourt",
-    }
+#    package { "puppet":
+#        ensure => latest,
+#        provider => "yaourt",
+#    }
 }
 
 class puppet::fix_it {

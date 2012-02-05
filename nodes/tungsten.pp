@@ -13,6 +13,7 @@ node "tungsten.electricgrey.com" {
 
     # GUI Apps
     include openbox
+    include dmenu
     include firefox
     include terminator
 
@@ -23,6 +24,9 @@ node "tungsten.electricgrey.com" {
     include zsh
     include ncmpcpp
     include lftp
+
+    # Misc
+    include fonts::dina
 
     # Configs
     os::user_config{ "mythmon": }
