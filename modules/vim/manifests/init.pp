@@ -5,7 +5,7 @@ class vim {
 }
 
 # $title is the name of the user this config should exist for
-define vim::config ($home="/home/${title}") {
+define vim::user_config ($home="/home/${title}") {
 
     $user = $title
 
@@ -17,7 +17,7 @@ define vim::config ($home="/home/${title}") {
 
         "${user}-vim-zshrc":
             # Require a zsh config for this user.
-            require => Zsh::Config["${user}"],
+            require => Zsh::User_config["${user}"],
             path    => "${home}/.zshrc.d/vim",
             content => template("vim/vim_zshrc.erb");
     }

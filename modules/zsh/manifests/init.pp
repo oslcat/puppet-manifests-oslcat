@@ -5,7 +5,7 @@ class zsh {
 }
 
 # config!
-define zsh::config ($home="/home/${title}") {
+define zsh::user_config ($home="/home/${title}") {
 
     file {
         "${title}-zshrc":

@@ -5,6 +5,6 @@ class terminator {
 }
 
 # $title is the name of the user this config should exist for
-define terminator::config ($home="/home/${title}") {
+define terminator::user_config ($home="/home/${title}") {
     $user = $title
 }
