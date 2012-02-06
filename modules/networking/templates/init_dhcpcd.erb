@@ -1,0 +1,37 @@
+#!/bin/bash
+
+. /etc/rc.conf
+. /etc/rc.d/functions
+
+PID=`pidof -o %PPID /usr/sbin/dhcpcd`
+
+case "$1" in
+  start)
+    stat_busy "Starting dhcpcd"
+    [ -z "$PID" ] && /usr/sbin/dhcpcd &> /dev/null
+    if [ $? -gt 0 ]; then
+      stat_fail
+    else
+      add_daemon dhcpcd
+      stat_done
+    fi
+    ;;
+  stop)
+    stat_busy "Stopping dhcpcd"
+    [ ! -z "$PID" ] && kill $PID &> /dev/null
+    if [ $? -gt 0 ]; then
+      stat_fail
+    else
+      rm_daemon dhcpcd
+      stat_done
+    fi
+    ;;
+  restart)
+    $0 stop
+    sleep 1
+    $0 start
+    ;;
+  *)
+    echo "usage: $0 {start|stop|restart}"
+esac
+exit 0

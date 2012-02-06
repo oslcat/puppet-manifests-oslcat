@@ -2,7 +2,10 @@ node "tungsten.electricgrey.com" {
     include os
 
     # System
+    include acpi
     include pm
+    include networking
+    include networking::wifi
     include puppet
     include puppet::fix_it
 
@@ -15,6 +18,7 @@ node "tungsten.electricgrey.com" {
     include openbox
     include dmenu
     include firefox
+    include flash
     include terminator
 
     # CLI Apps
