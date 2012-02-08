@@ -8,7 +8,7 @@ PID=`pidof -o %PPID /usr/sbin/wpa_supplicant`
 case "$1" in
   start)
     stat_busy "Starting WPA Supplicant"
-    [ -z "$PID" ] && wpa_supplicant -i <%= $interface %> -c /etc/wpa_supplicant.conf -B &> /dev/null
+    [ -z "$PID" ] && wpa_supplicant -i wlan0 -c /etc/wpa_supplicant.conf -B &> /dev/null
     if [ $? -gt 0 ]; then
       stat_fail
     else

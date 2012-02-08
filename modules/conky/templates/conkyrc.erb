@@ -42,6 +42,6 @@ ${time %H:%M:%S, %b %d} ${color1}|| \
 ${color}cpu ${cpu}% ${cpugraph 12,48} ${color1}|| \
 ${color}memory ${mem} ${color1}|| \
 ${color}power: ${battery} ${color1}|| \
-${color}wifi ${addr eth1} \
-${color}(${wireless_essid eth1}) \
-${color}${downspeedgraph eth1 12,48 -l} ${upspeedgraph eth1 12,48 -l} ${color1}
+${color}wifi ${addr wlan0} \
+${color}(${wireless_essid wlan0}) \
+${color}${downspeedgraph wlan0 12,48 -l} ${upspeedgraph wlan0 12,48 -l} ${color1}

@@ -12,7 +12,8 @@ node "tungsten.electricgrey.com" {
     # X
     include x11
     include x11::intel
-    include x11::test
+    include x11::synaptics
+    include x11::test::absent
 
     # GUI Apps
     include openbox
