@@ -1,0 +1,10 @@
+# If we have gmv, add the default options
+if ( which qmv &> /dev/null ); then
+    alias qmv='qmv -f do'
+fi
+
+if [[ -d ~/.beep ]] ; then
+    alias beep='aplay -q ~/.beep/notify.wav'
+else
+    alias beep='echo BEEP'
+fi

@@ -1,0 +1,15 @@
+# Use pacman-color if we have it
+if ( which pacman-color &> /dev/null ); then
+    alias pac='sudo pacman-color'
+else
+    alias pac='sudo pacman'
+fi
+
+# set up some sort of AUR, if we have it
+if ( which yaourt &> /dev/null); then
+    alias aur='yaourt'
+elif ( which bauerbull &> /dev/null); then
+    alias aur='sudo bauerbill --aur'
+else
+    alias aur='echo "You have no AUR support :.("'
+fi

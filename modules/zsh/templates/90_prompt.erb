@@ -1,0 +1,91 @@
+autoload promptinit
+promptinit
+
+setopt prompt_subst
+
+autoload -Uz vcs_info
+if vcs_info 2> /dev/null; then
+    zstyle ':vcs_info:*' enable git
+    zstyle ':vcs_info:git*:*' get-revision true
+    zstyle ':vcs_info:git*:*' check-for-changes true
+
+    zstyle ':vcs_info:*' actionformats "± %r/%S:%F{7}%b%F{85}#%0.6i%f:%a"
+    zstyle ':vcs_info:*' formats       "± %r/%S:%F{7}%b%F{85}#%0.6i%f"
+fi
+
+# Called right before a command runs
+preexec_prompt () {
+    resetpromptcount="0"
+    # post-command prompt gets a long time and a short tty
+    pstime=" %F{cyan}%*%f"  # for post-command prompt
+    psstarttime=$(date +%s)
+    lasttime=""
+    ODIR="$(pwd)"
+}
+
+add-zsh-hook preexec preexec_prompt
+
+# Called right before drawing a prompt.
+precmd_prompt () {
+    lastexit=$?
+    pstime="%F{cyan}%T%f"
+    pspath="%F{green}%~%f"
+    pshost="%F{$(hash_color $(hostname))}%m%f"
+    psuser="%n"
+
+    if [[ $lastexit -eq 0 ]]; then
+        psat="%F{2}@%f"
+    else
+        psat="%F{9}$lastexit@%f"
+    fi
+
+    # If the last command took longer than some time to run, say so.
+    if [ -n "$psstarttime" ] ; then
+        exectimeraw=$(($(date +%s)-$psstarttime))
+        if [ $exectimeraw -gt 30 ] ; then
+            if [ $exectimeraw -lt 100 ] ; then
+                lasttime="${exectimeraw}s"
+            else
+                execmin=$(($exectimeraw/60))
+                execsec=$(($exectimeraw%60))
+                if [ $execmin -lt 100 ] ; then
+                    lasttime="${execmin}m${execsec}s"
+                else
+                    exechr=$(($execmin/60))
+                    execmin=$(($execmin%60))
+                    lasttime="${exechr}h${execmin}m${execsec}s"
+                    if [ $exechr -ge 36 ] ; then
+                        execday=$(($exechr/24))
+                        exechr=$(($exechr%24))
+                        lasttime="${execday}d${exechr}h${execmin}m"
+                    fi
+                fi
+            fi
+            echo "Runtime: $lasttime"
+        fi
+    fi
+    psstarttime=""
+
+    vcs_info
+    if [[ -n $vcs_info_msg_0_ ]] ; then
+        psvcs="%F{blue}$vcs_info_msg_0_%f"
+        psvcs=$(echo $psvcs | sed -e 's_^\([^/]\+\)/\._\1_')
+        psvcs=$(echo $psvcs | sed -e 's/:%F{[0-9]\+}master//')
+        pspath=""
+    else
+        psvcs=""
+    fi
+}
+
+add-zsh-hook precmd precmd_prompt 
+
+TMOUT=20
+TRAPALRM () {
+    zle reset-prompt
+}
+
+
+PROMPT='${psat}${pshost}> '
+RPROMPT='${pspath}${psvcs} ${pstime}'
+
+#EOF vim: ft=zsh

@@ -86,7 +86,7 @@ PATH="$HOME/bin:$PATH"
 
 export EDITOR="vim"
 
-alias ls='ls --color=if-tty'
+alias ls='ls --color=if-tty --group-directories-first -hF'
 alias rm='rm -r'
 alias cp='cp -r'
 
@@ -96,5 +96,3 @@ for file in $(ls $HOME/.zshrc.d/* | grep -ve ".swp$" | grep -ve ".bak$")
 do
     source $file
 done
-
-export LANG="en_US.utf8"
