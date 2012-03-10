@@ -2,8 +2,7 @@ hash_color() {
     # We get the first 7 digits of the md5sum; if we got 8 digits, the
     # hosthash might be negative on 32-bit machines, and that would mess
     # things up.
-    HASH=$(echo $1 | md5sum)
-    HASH=${HASH:0:7}
+    HASH=$(echo $1 | md5sum | cut -c 1-7)
 
     # Map into the range of available colours
     if [ $(tput colors) -ge 256 ]; then
