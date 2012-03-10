@@ -20,6 +20,8 @@ define vim::user_config ($home="/home/${title}") {
 
         "${user}-vim-zshrc":
             # Require a zsh config for this user.
+            owner   => "${title}",
+            group   => "users", # XXX Fix me
             require => Zsh::User_config["${user}"],
             path    => "${home}/.zshrc.d/vim",
             content => template("vim/vim_zshrc.erb");
