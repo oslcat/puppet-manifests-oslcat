@@ -40,25 +40,13 @@ define zsh::user_config ($home="/home/${title}") {
             path    => "${home}/.zshrc.d/20_auto_ls",
             content => template("zsh/20_auto_ls.erb");
 
-        "${title}_50_arch":
-            path    => "${home}/.zshrc.d/50_arch",
-            content => template("zsh/50_arch.erb");
-
         "${title}_50_git":
             path    => "${home}/.zshrc.d/50_git",
             content => template("zsh/50_git.erb");
 
-        "${title}_50_local":
-            path    => "${home}/.zshrc.d/50_local",
-            content => template("zsh/50_local.erb");
-
         "${title}_50_misc":
             path    => "${home}/.zshrc.d/50_misc",
             content => template("zsh/50_misc.erb");
-
-        "${title}_50_osl":
-            path    => "${home}/.zshrc.d/50_osl",
-            content => template("zsh/50_osl.erb");
 
         "${title}_50_ssh":
             path    => "${home}/.zshrc.d/50_ssh",
