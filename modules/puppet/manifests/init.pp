@@ -1,8 +1,9 @@
 class puppet {
-#    package { "puppet":
-#        ensure => latest,
-#        provider => "yaourt",
-#    }
+    if $::operatingsystem != "Archlinux" {
+        package { "puppet":
+            ensure => latest,
+        }
+    }
 }
 
 class puppet::fix_it {
@@ -17,6 +18,14 @@ class puppet::fix_it {
             exec { "fix-ipaddress-fact":
                 command => "/bin/sed -i -e 's/addr://' ${broken_ipaddress_fact}",
                 onlyif  => "/bin/grep 'addr:' ${broken_ipaddress_fact}",
+            }
+        }
+
+        /Ubuntu/: {
+            $buggy_group_file = '/usr/lib/ruby/1.8/puppet/type/group.rb'
+            exec { "fix-buggy-group-type":
+                command => "/bin/sed -i -e '/defaultto \"compat\"/d' ${buggy_group_file}",
+                onlyif  => "/bin/grep 'defaultto \"compat\"' ${buggy_group_file}",
             }
         }
     }
