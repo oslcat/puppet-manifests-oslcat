@@ -1,10 +1,11 @@
 class firefox {
-    package {
-        "firefox":
-            require => Package[xorg-server],
-            ensure  => latest;
-        "libpng":
+    package { "firefox":
+        ensure  => latest;
+    }
+    if ($operatingsystem == "Arch") {
+        package {"libpng":
             ensure => latest;
+        }
     }
 }
 
