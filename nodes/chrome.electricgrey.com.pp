@@ -1,7 +1,7 @@
 node "chrome.electricgrey.com" {
-    include os
-
     # System
+    include os
+    include ntp
     include puppet
     include puppet::fix_it
 
