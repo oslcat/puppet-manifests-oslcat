@@ -5,25 +5,23 @@ class vim {
         ensure => present,
         name   => "${vim::params::packagename}",
     }
+
+    Util::User_config_file <| $app == "vim" |>
 }
 
 # $title is the name of the user this config should exist for
 define vim::user_config ($home="/home/${title}") {
 
-    $user = $title
-
-    file {
-        "${user}-vimrc":
+    @util::user_config_file {
+        "vimrc":
+            app     => "vim",
+            user    => "${title}",
             path    => "${home}/.vimrc",
-            ensure  => present,
-            content => template("vim/vimrc.erb");
-
-        "${user}-vim-zshrc":
-            # Require a zsh config for this user.
-            owner   => "${title}",
-            group   => "users", # XXX Fix me
-            require => Zsh::User_config["${user}"],
-            path    => "${home}/.zshrc.d/vim",
-            content => template("vim/vim_zshrc.erb");
+            template => "vim/vimrc.erb";
+        "vim-zsh":
+            app     => "zsh",
+            user    => "${title}",
+            path    => "${home}/.vimrc",
+            template => "vim/vim_zshrc.erb";
     }
 }

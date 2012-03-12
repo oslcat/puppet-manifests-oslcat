@@ -8,15 +8,16 @@ class os {
 define os::user_config($home="/home/${title}") {
     case $::operatingsystem {
         /Archlinux/: {
-            file { "arch-zshrc":
-                require => Zsh::User_config[$title],
-                path => "${home}/.zshrc.d/arch",
-                content => template('os/arch/zshrc'),
+            @util::user_config_file { "arch-zshrc":
+                app      => "zsh",
+                user     => "${title}",
+                path     => "${home}/.zshrc.d/arch",
+                template => 'os/arch/zshrc',
             }
         }
     }
 
-    @file { "${title}-dot-config":
+    @file { "uc-${title}-dot-config":
         path => "${home}/.config",
         ensure => directory;
     }
