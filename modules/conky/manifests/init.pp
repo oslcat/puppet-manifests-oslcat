@@ -9,7 +9,7 @@ class conky {
 # $name is the name of the user this config should exist for
 define conky::user_config ($home="/home/${title}") {
 
-    util::user_config_file { "conkyrc":
+    @util::user_config_file { "conkyrc":
         app      => "conky",
         user     => "${title}",
         path     => "${home}/.conkyrc",
