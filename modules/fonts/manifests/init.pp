@@ -3,7 +3,17 @@ class fonts::all {
 }
 
 class fonts::dina {
-    package { "dina-font":
-        ensure => latest,
+    include fonts::params
+    
+    package { "${fonts::params::dina_package}":
+        ensure => "${fonts::params::dina_ensure}",
+    }
+}
+
+class fonts::params {
+    $dina_package = "dina-font"
+    $dina_ensure = $::operatingsystem ? {
+        /Ubuntu/ => 'absent',
+        default  => 'latest',
     }
 }
