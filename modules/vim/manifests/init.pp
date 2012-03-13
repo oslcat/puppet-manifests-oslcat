@@ -6,7 +6,7 @@ class vim {
         name   => "${vim::params::packagename}",
     }
 
-    Util::User_config_file <| $app == "vim" |>
+    Util::User_config_file <| app == "vim" |>
 }
 
 # $title is the name of the user this config should exist for
@@ -21,7 +21,7 @@ define vim::user_config ($home="/home/${title}") {
         "vim-zsh":
             app     => "zsh",
             user    => "${title}",
-            path    => "${home}/.vimrc",
+            path    => "${home}/.zshrc.d/vim",
             template => "vim/vim_zshrc.erb";
     }
 }
