@@ -1,12 +1,18 @@
 class x11 {
+    include x11::params
+    Package { ensure => latest, }
     package {
-        "xorg-server":       ensure => latest;
-        "xorg-xinit":        ensure => latest;
-        "xorg-utils":        ensure => latest;
-        "xorg-server-utils": ensure => latest;
+        "${x11::params::package_xorg}":;
+        "${x11::params::package_xinit}":;
+        "${x11::params::package_mesa}":;
+    }
 
-        "mesa":              ensure => latest;
-        "mesa-demos":        ensure => latest;
+    if $::operatingsystem =~ /Archlinux/ {
+        package {
+            "mesa-demos":;
+            "xorg-utils":;
+            "xorg-server-utils":;
+        }
     }
 }
 
