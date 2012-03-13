@@ -6,11 +6,10 @@ node "chrome.electricgrey.com" inherits laptop {
     include firefox
 
     # CLI Apps
-    include conky
     include ncmpcpp
     include lftp
 
-    User["mythmon"] {
-        groups     => ['wheel', 'adm', 'dialout', 'cdrom', 'plugdev', 'lpadmin', 'admin', 'sambashare'],
-    }
+    #User["mythmon"] {
+    #    groups     => ['wheel', 'adm', 'dialout', 'cdrom', 'plugdev', 'lpadmin', 'admin', 'sambashare'],
+    #}
 }
