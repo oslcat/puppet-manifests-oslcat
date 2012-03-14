@@ -9,19 +9,15 @@ class zsh {
 # config!
 define zsh::user_config ($home="/home/${title}") {
 
-    File {
-        owner  => "${title}",
-        group  => "users", # XXX This should be better.
-        ensure => present,
-    }
-
-    file {
-        "${title}_zsh_dir}":
-            path    => "${home}/.zsh",
-            ensure  => directory;
-        "${title}_zshrc.d":
-            path   => "${home}/.zshrc.d",
-            ensure => directory,
+    @util::user_config_dir {
+        "${title}_zsh_dir":
+            path => "${home}/.zsh",
+            app  => "zsh",
+            user => "${title}";
+        "${title}_zshd":
+            path => "${home}/.zshrc.d",
+            app  => "zsh",
+            user => "${title}";
     }
 
     @util::user_config_file {

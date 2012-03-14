@@ -14,10 +14,7 @@ module Puppet::Parser::Functions
       end
     end
 
-    if result
-      result
-    else
-      raise Puppet::ParseError, "Failed to find any of #{templates.join(', ')}"
-    end
+    return result unless result.nil?
+    raise Puppet::ParseError, "Failed to find any of #{templates.join(', ')}"
   end
 end

@@ -8,7 +8,7 @@ node "hafnium.electricgrey.com" inherits desktop {
     include lftp
 
     # Configs
-#    User <| title == "mythmon" |> {
-#        groups +> ['http', 'games', 'video', 'optical', 'vboxusers', 'disk', 'lp', 'storage', 'power'],
-#    }
+    User <| title == "mythmon" |> {
+        groups +> ['http', 'games', 'video', 'optical', 'vboxusers', 'disk', 'lp', 'storage', 'power'],
+    }
 }
