@@ -1,7 +1,9 @@
 class users::mythmon {
-    user { "mythmon":
+    $username = "mythmon"
+
+    user { "${username}":
         ensure     => present,
-        home       => "/home/mythmon",
+        home       => "/home/${username}",
         gid        => "users",
         groups     => ['users', 'wheel'],
         managehome => true,
@@ -9,9 +11,10 @@ class users::mythmon {
         require    => Package['zsh'],
     }
 
-    os::user_config { "mythmon": }
-    zsh::user_config { "mythmon": }
-    vim::user_config { "mythmon": }
-    conky::user_config { "mythmon": }
-    openbox::user_config { "mythmon": }
+    os::user_config { "${username}": }
+    zsh::user_config { "${username}": }
+    vim::user_config { "${username}": }
+    conky::user_config { "${username}": }
+    openbox::user_config { "${username}": }
+    ruby::user_config { "${username}": }
 }

@@ -2,18 +2,18 @@ node core {
     include os
     include puppet
     include puppet::fix_it
+
+    include ruby
+    include vim
+    include curl
 }
 
 node base inherits core {
-    Group {
-        ensure => present,
-    }
     group {
-        "users":;
-        "wheel":;
+        "users": ensure => present;
+        "wheel": ensure => present;
     }
 
-    include vim
     include git
     include zsh
 
