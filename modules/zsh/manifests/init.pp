@@ -4,6 +4,7 @@ class zsh {
     }
 
     Util::User_config_file <| app == "zsh" |> {}
+    Util::User_config_dir <| app == "zsh" |> {}
 }
 
 # config!
