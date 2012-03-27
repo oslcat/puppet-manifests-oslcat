@@ -18,6 +18,11 @@ define puppet::dev::user_config ($home="/home/${title}") {
       user => "${title}",
       path => "${home}/.vim/ftdetect/puppet.vim",
       template => "puppet/puppet.ftdetect.vim.erb";
+    "puppet-vim-ftplugin":
+      app => "vim",
+      user => "${title}",
+      path => "${home}/.vim/ftplugin/puppet.vim",
+      template => "puppet/puppet.ftplugin.vim.erb";
   }
 }
 
