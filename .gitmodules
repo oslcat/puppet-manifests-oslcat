@@ -1,0 +1,3 @@
+[submodule "modules/vcsrepo"]
+	path = modules/vcsrepo
+	url = https://github.com/puppetlabs/puppet-vcsrepo.git
