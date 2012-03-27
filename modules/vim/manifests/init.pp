@@ -6,6 +6,5 @@ class vim {
     name   => "${vim::params::packagename}",
   }
 
-  Util::User_config_file <| app == "vim" |>
-  Util::User_config_dir <| app == "vim" |>
+  File <| tag == "vim" |>
 }
