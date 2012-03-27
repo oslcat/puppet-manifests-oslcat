@@ -1,34 +1,45 @@
 # $title is the name of the user this config should exist for
 define vim::user_config ($home="/home/${title}") {
-  @util::user_config_dir {
+
+  @file {
     "vim_dir":
-      app => "vim",
-      user => "${title}",
-      path => "${home}/.vim";
+      tag    => "vim",
+      owner  => "${title}",
+      group  => "users", # XXX
+      path   => "${home}/.vim",
+      ensure => directory;
     "vim_ftdetect_dir":
-      app => "vim",
-      user => "${title}",
-      path => "${home}/.vim/ftdetect";
+      tag    => "vim",
+      owner  => "${title}",
+      group  => "users", # XXX
+      path   => "${home}/.vim/ftdetect",
+      ensure => directory;
     "vim_syntax_dir":
-      app => "vim",
-      user => "${title}",
-      path => "${home}/.vim/syntax";
+      tag    => "vim",
+      owner  => "${title}",
+      group  => "users", # XXX
+      path   => "${home}/.vim/syntax",
+      ensure => directory;
     "vim_autoload_dir":
-      app => "vim",
-      user => "${title}",
-      path => "${home}/.vim/autoload";
+      tag    => "vim",
+      owner  => "${title}",
+      group  => "users", # XXX
+      path   => "${home}/.vim/autoload",
+      ensure => directory;
   }
 
-  @util::user_config_file {
+  @file {
     "vimrc":
-      app      => "vim",
-      user     => "${title}",
-      path     => "${home}/.vimrc",
-      template => ["vim/${title}/vimrc.erb", "vim/vimrc.erb"];
+      tag       => "vim",
+      owner     => "${title}",
+      group     => "users",
+      path      => "${home}/.vimrc",
+      content   => try_templates(["vim/${title}/vimrc.erb", "vim/vimrc.erb"]);
     "vim-zsh":
-      app      => "zsh",
-      user     => "${title}",
-      path     => "${home}/.zshrc.d/vim",
-      template => "vim/vim_zshrc.erb";
+      tag       => "zsh",
+      owner     => "${title}",
+      group     => "users",
+      path      => "${home}/.zshrc.d/vim",
+      content   => try_templates("vim/vim_zshrc.erb");
   }
 }

@@ -7,22 +7,28 @@ class puppet {
 }
 
 define puppet::dev::user_config ($home="/home/${title}") {
-  @util::user_config_file {
+  @file {
     "puppet-vim-syntax":
-      app => "vim",
-      user => "${title}",
-      path => "${home}/.vim/syntax/puppet.vim",
-      template => "puppet/puppet.syntax.vim.erb";
+      path    => "${home}/.vim/syntax/puppet.vim",
+      ensure  => present,
+      tag     => "vim",
+      owner   => "${title}",
+      group   => "users",
+      content => template("puppet/puppet.syntax.vim.erb");
     "puppet-vim-ftdetect":
-      app => "vim",
-      user => "${title}",
-      path => "${home}/.vim/ftdetect/puppet.vim",
-      template => "puppet/puppet.ftdetect.vim.erb";
+      path    => "${home}/.vim/ftdetect/puppet.vim",
+      ensure  => present,
+      tag     => "vim",
+      owner   => "${title}",
+      group   => "users",
+      content => template("puppet/puppet.ftdetect.vim.erb");
     "puppet-vim-ftplugin":
-      app => "vim",
-      user => "${title}",
-      path => "${home}/.vim/ftplugin/puppet.vim",
-      template => "puppet/puppet.ftplugin.vim.erb";
+      path    => "${home}/.vim/ftplugin/puppet.vim",
+      ensure  => present,
+      app     => "vim",
+      owner   => "${title}",
+      group   => "users",
+      content => template("puppet/puppet.ftplugin.vim.erb");
   }
 }
 

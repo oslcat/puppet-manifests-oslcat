@@ -4,11 +4,17 @@ class ruby {
     }
 }
 
+class ruby::dev {
+    File <| tag == "ruby" |>
+}
+
 define ruby::dev::user_config ($home="/home/${title}") {
-    @util::user_config_file {"ruby-vim-config":
-        app     => "vim",
-        user    => "${title}",
+    @file { "ruby-vim-config":
         path    => "${home}/.vim/ftdetect/ruby.vim",
-        template => "ruby/ruby.vim.erb";
+        content => template("ruby/ruby.vim.erb"),
+        tag     => "vim",
+        owner   => "${title}",
+        group   => "users",
+        ensure  => present;
     }
 }

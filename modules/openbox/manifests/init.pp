@@ -3,34 +3,41 @@ class openbox {
         ensure => latest,
     }
 
-    Util::User_config_file <| $app == "openbox" |>
+    File <| tag == "openbox" |>
 }
 
 define openbox::user_config($home="/home/${title}") {
     File <| title == "${title}-dot-config" |>
 
-    @util::user_config_file {
+    @file {
         "autostart":
             path     => "${home}/.config/openbox/autostart.sh",
-            template => 'openbox/autostart.sh.erb',
-            app => "openbox",
-            user => "${title}";
+            content  => template('openbox/autostart.sh.erb'),
+            tag      => "openbox",
+            owner    => "${title}",
+            group    => "users",
+            ensure   => present;
         "menu":
             path     => "${home}/.config/openbox/menu.xml",
-            template => 'openbox/menu.xml.erb',
-            app => "openbox",
-            user => "${title}";
+            content  => template('openbox/menu.xml.erb'),
+            tag      => "openbox",
+            owner    => "${title}",
+            group    => "users",
+            ensure   => present;
         "rc":
             path     => "${home}/.config/openbox/rc.xml",
-            template => 'openbox/rc.xml.erb',
-            app => "openbox",
-            user => "${title}";
+            content  => template('openbox/rc.xml.erb'),
+            tag      => "openbox",
+            owner    => "${title}",
+            group    => "users",
+            ensure   => present;
     }
 
-    file { "${title}-openbox":
+    @file { "${title}-openbox":
         ensure => directory,
-        path => "${home}/.config/openbox",
+        path   => "${home}/.config/openbox",
         owner  => "${title}",
         group  => "users", # XXX This should be better.
+        tag    => "openbox",
     }
 }
