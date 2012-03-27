@@ -3,6 +3,7 @@ node core {
     include puppet
     include puppet::fix_it
 
+    include python
     include ruby
     include vim
     include curl
@@ -16,6 +17,7 @@ node base inherits core {
 
     include git
     include zsh
+    include python::dev
 
     include users::mythmon
 }

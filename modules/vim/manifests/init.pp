@@ -17,10 +17,10 @@ define vim::user_config ($home="/home/${title}") {
             app => "vim",
             user => "${title}",
             path => "${home}/.vim";
-        "vim_ftplugin_dir":
+        "vim_ftdetect_dir":
             app => "vim",
             user => "${title}",
-            path => "${home}/.vim/ftplugin";
+            path => "${home}/.vim/ftdetect";
         "vim_syntax_dir":
             app => "vim",
             user => "${title}",

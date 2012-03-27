@@ -1,6 +1,8 @@
 node "chrome.electricgrey.com" inherits laptop {
     # System
     include ntp
+    include networking
+    include networking::wifi
 
     # GUI Apps
     include firefox

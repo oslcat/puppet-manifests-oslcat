@@ -1,5 +1,5 @@
 class dmenu {
-    package { "dmenu":
-        ensure => latest,
-    }
+  package { "dmenu":
+    ensure => latest,
+  }
 }
