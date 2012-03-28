@@ -14,6 +14,12 @@ define vim::user_config ($home="/home/${title}", $pathogen=false) {
       group  => "users", # XXX
       path   => "${home}/.vim/ftdetect",
       ensure => directory;
+    "vim_ftplugin_dir":
+      tag    => "vim",
+      owner  => "${title}",
+      group  => "users", # XXX
+      path   => "${home}/.vim/ftplugin",
+      ensure => directory;
     "vim_syntax_dir":
       tag    => "vim",
       owner  => "${title}",
@@ -42,11 +48,18 @@ define vim::user_config ($home="/home/${title}", $pathogen=false) {
   }
 
   if $pathogen {
-    @file { "${title}_pathogen_autoload":
-      path   => "${home}/.vim/autoload/pathogen.vim",
-      source => "puppet:///modules/vim/pathogen/autoload/pathogen.vim",
-      ensure => present,
-      tag    => "vim",
+    @file {
+      "${title}_pathogen_autoload":
+        path   => "${home}/.vim/autoload/pathogen.vim",
+        source => "puppet:///modules/vim/pathogen/autoload/pathogen.vim",
+        ensure => present,
+        tag    => "vim";
+      "${title}_pathogen_bundle":
+        path   => "${home}/.vim/bundle",
+        ensure => directory,
+        tag    => "vim";
     }
+
+    Vcsrepo <| tag == "${title}_pathogen" |>
   }
 }
