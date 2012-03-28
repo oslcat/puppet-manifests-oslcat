@@ -26,7 +26,7 @@ class users::mythmon {
 
     os::user_config          { "${username}": }
     zsh::user_config         { "${username}": }
-    vim::user_config         { "${username}": }
+    vim::user_config         { "${username}": pathogen => true }
     conky::user_config       { "${username}": }
     openbox::user_config     { "${username}": }
     ruby::dev::user_config   { "${username}": }

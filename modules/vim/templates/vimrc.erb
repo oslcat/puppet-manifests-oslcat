@@ -1,10 +1,13 @@
-" noop
-": automatic syntax highlighting
 set nocompatible " Vim defaults, instead of vi
+" automatic syntax highlighting
 filetype plugin indent on
 syntax on
 colorscheme zellner
 
+<% if pathogen -%>
+call pathogen#infect()
+
+<% end -%>
 " Local vimrc files
 set exrc                    " Enable per directory .vimrc files
 set secure                  " Disable unsafe commands in local .vimrc files

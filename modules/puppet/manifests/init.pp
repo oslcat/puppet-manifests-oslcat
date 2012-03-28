@@ -25,7 +25,7 @@ define puppet::dev::user_config ($home="/home/${title}") {
     "puppet-vim-ftplugin":
       path    => "${home}/.vim/ftplugin/puppet.vim",
       ensure  => present,
-      app     => "vim",
+      tag     => "vim",
       owner   => "${title}",
       group   => "users",
       content => template("puppet/puppet.ftplugin.vim.erb");

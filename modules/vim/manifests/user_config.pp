@@ -1,5 +1,5 @@
 # $title is the name of the user this config should exist for
-define vim::user_config ($home="/home/${title}") {
+define vim::user_config ($home="/home/${title}", $pathogen=false) {
 
   @file {
     "vim_dir":
@@ -26,9 +26,7 @@ define vim::user_config ($home="/home/${title}") {
       group  => "users", # XXX
       path   => "${home}/.vim/autoload",
       ensure => directory;
-  }
 
-  @file {
     "vimrc":
       tag       => "vim",
       owner     => "${title}",
@@ -41,5 +39,14 @@ define vim::user_config ($home="/home/${title}") {
       group     => "users",
       path      => "${home}/.zshrc.d/vim",
       content   => try_templates("vim/vim_zshrc.erb");
+  }
+
+  if $pathogen {
+    @file { "${title}_pathogen_autoload":
+      path   => "${home}/.vim/autoload/pathogen.vim",
+      source => "puppet:///modules/vim/pathogen/autoload/pathogen.vim",
+      ensure => present,
+      tag    => "vim",
+    }
   }
 }
