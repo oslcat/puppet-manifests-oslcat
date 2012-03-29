@@ -7,6 +7,7 @@ node "carbon.osuosl.org" inherits desktop {
     # CLI Apps
     include lftp
 
+    include users::mythmon
     User <| $name == "mythmon" |> {
         groups +> ['http', 'games', 'video', 'optical', 'vboxusers', 'libvirt'],
     }

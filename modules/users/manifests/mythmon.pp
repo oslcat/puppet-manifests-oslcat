@@ -1,6 +1,8 @@
 class users::mythmon {
     $username = "mythmon"
 
+    include zsh
+
     user { "${username}":
         ensure     => present,
         home       => "/home/${username}",

@@ -7,6 +7,7 @@ node "hafnium.electricgrey.com" inherits desktop {
     # CLI Apps
     include lftp
 
+    include users::mythmon
     # Configs
     User <| title == "mythmon" |> {
         groups +> ['http', 'games', 'video', 'optical', 'vboxusers', 'disk', 'lp', 'storage', 'power'],

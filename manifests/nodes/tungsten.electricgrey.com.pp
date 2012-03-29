@@ -19,4 +19,6 @@ node "tungsten.electricgrey.com" inherits laptop {
     include conky
     include ncmpcpp
     include lftp
+
+    include users::mythmon
 }

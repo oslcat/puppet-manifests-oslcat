@@ -11,6 +11,7 @@ node "chrome.electricgrey.com" inherits laptop {
     include ncmpcpp
     include lftp
 
+    include users::mythmon
     #User["mythmon"] {
     #    groups     => ['wheel', 'adm', 'dialout', 'cdrom', 'plugdev', 'lpadmin', 'admin', 'sambashare'],
     #}
