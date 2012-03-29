@@ -1,20 +1,28 @@
 class ruby {
-    package {'ruby':
-        ensure => latest,
-    }
+  package {'ruby':
+    ensure => latest,
+  }
 }
 
 class ruby::dev {
-    File <| tag == "ruby" |>
+  File <| tag == "ruby" |>
 }
 
 define ruby::dev::user_config ($home="/home/${title}") {
-    @file { "ruby-vim-config":
-        path    => "${home}/.vim/ftdetect/ruby.vim",
-        content => template("ruby/ruby.vim.erb"),
-        tag     => "vim",
-        owner   => "${title}",
-        group   => "users",
-        ensure  => present;
-    }
+  @file {
+    "ruby-vim-ftdetect":
+      path    => "${home}/.vim/ftdetect/ruby.vim",
+      content => template("ruby/ruby.vim.ftdetect.erb"),
+      tag     => "vim",
+      owner   => "${title}",
+      group   => "users",
+      ensure  => present;
+    "ruby-vim-ftplugin":
+      path    => "${home}/.vim/ftplugin/ruby.vim",
+      content => template("ruby/ruby.vim.ftplugin.erb"),
+      tag     => "vim",
+      owner   => "${title}",
+      group   => "users",
+      ensure  => present;
+  }
 }
