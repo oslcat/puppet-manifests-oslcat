@@ -4,14 +4,18 @@ class x11 {
   package {
     "${x11::params::package_xorg}":;
     "${x11::params::package_xinit}":;
-    "${x11::params::package_mesa}":;
   }
 
   if $::operatingsystem =~ /Archlinux/ {
     package {
-      "mesa-demos":;
       "xorg-utils":;
       "xorg-server-utils":;
+    }
+  }
+  if $::operatingsystem !~ /Fedora/ {
+    package {
+      "mesa-demos":;
+      "${x11::params::package_mesa}":;
     }
   }
 }
