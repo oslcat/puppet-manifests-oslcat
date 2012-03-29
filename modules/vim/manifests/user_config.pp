@@ -38,7 +38,7 @@ define vim::user_config ($home="/home/${title}", $pathogen=false) {
       owner     => "${title}",
       group     => "users",
       path      => "${home}/.vimrc",
-      content   => try_templates(["vim/${title}/vimrc.erb", "vim/vimrc.erb"]);
+      content   => try_templates("vim/${title}/vimrc.erb");
     "vim-zsh":
       tag       => "zsh",
       owner     => "${title}",

@@ -16,10 +16,7 @@ node base inherits core {
     }
 
     include git
-    include zsh
     include python::dev
-
-    include users::mythmon
 }
 
 node server inherits base {
