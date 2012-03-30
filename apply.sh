@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [[ ${SUDO} == 'NO' ]]; then
     SUDO=""
