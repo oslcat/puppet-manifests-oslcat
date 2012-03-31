@@ -4,7 +4,8 @@ class fonts::all {
 
 class fonts::dina {
     include fonts::params
-    package { "${fonts::params::dina_package}":
+    package { "dina":
+        name   => "${fonts::params::dina_package}",
         ensure => "${fonts::params::dina_ensure}",
     }
 }
