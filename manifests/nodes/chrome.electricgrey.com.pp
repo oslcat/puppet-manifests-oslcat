@@ -2,7 +2,7 @@ node "chrome.electricgrey.com" inherits laptop {
   # System
   include ntp
   include networking
-  include networking::wifi
+  include networking::wpa_supplicant
 
   # GUI Apps
   include firefox
