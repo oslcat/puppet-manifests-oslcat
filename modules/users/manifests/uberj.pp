@@ -13,10 +13,10 @@ class users::uberj {
 
     #os::user_config          { "${username}": }
     bash::user_config         { "${username}": }
-    git::user_config         { "${username}": }
     ruby::dev::user_config   { "${username}": }
     puppet::dev::user_config { "${username}": }
-    vim::user_config { "${username}": 
-        vimrc => templates("users/uberj/vimrc.erb"),
+
+    git::user_config { "${username}":
+      gitconfig => template("users/uberj/gitconfig.erb"),
     }
 }

@@ -26,11 +26,16 @@ class users::mythmon {
 
     os::user_config { "${username}": }
     zsh::user_config { "${username}": }
-    vim::user_config { "${username}":
-      vimrc    => template("users/mythmon/vimrc.erb"),
-      pathogen => true,
-    }
     conky::user_config { "${username}": }
     openbox::user_config { "${username}": }
     ruby::dev::user_config { "${username}": }
+
+    vim::user_config { "${username}":
+        vimrc    => template("users/mythmon/vimrc.erb"),
+        pathogen => true,
+    }
+
+    git::user_config { "${username}":
+        gitconfig => template("users/mythmon/gitconfig.erb"),
+    }
 }
