@@ -26,8 +26,9 @@ class fonts::params {
         default  => 'latest',
     }
     $inconsolata_package = $::operatingsystem ? {
-        /Fedora/ => "levien-inconsolata-fonts",
-        default => "inconsolata",
+        /Fedora/    => "levien-inconsolata-fonts",
+        /Archlinux/ => "community/ttf-inconsolata",
+        default     => "inconsolata",
     }
     $inconsolata_ensure = "latest"
 }
