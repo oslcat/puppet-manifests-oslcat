@@ -1,6 +1,8 @@
 class users::mythmon {
   $username = "mythmon"
 
+  include zsh
+
   user { "${username}":
     ensure     => present,
     home       => "/home/${username}",
@@ -25,17 +27,17 @@ class users::mythmon {
   }
 
   vim::user_config { "${username}":
-    vimrc    => template("users/mythmon/vimrc.erb"),
+    template => "users/mythmon/vimrc.erb",
     pathogen => true,
   }
 
   git::user_config { "${username}":
-    gitconfig => template("users/mythmon/gitconfig.erb"),
+    template => "users/mythmon/gitconfig.erb",
   }
 
-  os::user_config        { "$ { username}": }
-  zsh::user_config       { "$ { username}": }
-  conky::user_config     { "$ { username}": }
-  openbox::user_config   { "$ { username}": }
-  ruby::dev::user_config { "$ { username}": }
+  os::user_config        { "${username}": }
+  zsh::user_config       { "${username}": }
+  conky::user_config     { "${username}": }
+  openbox::user_config   { "${username}": }
+  ruby::dev::user_config { "${username}": }
 }

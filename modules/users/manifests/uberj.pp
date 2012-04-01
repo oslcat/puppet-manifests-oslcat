@@ -12,10 +12,10 @@ class users::uberj {
   }
 
   git::user_config { "${username}":
-    gitconfig => template("users/uberj/gitconfig.erb"),
+    template => "users/uberj/gitconfig.erb",
   }
-  vim::user_config { "${username}": 
-    vimrc => templates("users/uberj/vimrc.erb"),
+  vim::user_config { "${username}":
+    template => "users/uberj/vimrc.erb",
   }
 
   #os::user_config          { "$ { username}": }

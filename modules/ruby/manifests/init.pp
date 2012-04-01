@@ -16,13 +16,13 @@ define ruby::dev::user_config ($home="/home/${title}") {
       tag     => "vim",
       owner   => "${title}",
       group   => "users",
-      ensure  => present;
+      ensure  => present,
     "ruby-vim-ftplugin":
       path    => "${home}/.vim/ftplugin/ruby.vim",
       content => template("ruby/ruby.vim.ftplugin.erb"),
       tag     => "vim",
       owner   => "${title}",
       group   => "users",
-      ensure  => present;
+      ensure  => present,
   }
 }
