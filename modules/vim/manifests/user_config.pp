@@ -1,6 +1,9 @@
 # $title is the name of the user this config should exist for
-define vim::user_config ($home="/home/${title}", $pathogen=false) {
-
+define vim::user_config (
+  $home="/home/${title}",
+  $pathogen=false,
+  $vimrc=template("vim/vimrc.erb"),
+) {
   @file {
     "vim_dir":
       tag    => "vim",
@@ -38,13 +41,13 @@ define vim::user_config ($home="/home/${title}", $pathogen=false) {
       owner     => "${title}",
       group     => "users",
       path      => "${home}/.vimrc",
-      content   => try_templates("vim/${title}/vimrc.erb");
+      content   => "${vimrc}",
     "vim-zsh":
       tag       => "zsh",
       owner     => "${title}",
       group     => "users",
       path      => "${home}/.zshrc.d/vim",
-      content   => try_templates("vim/vim_zshrc.erb");
+      content   => template("vim/vim_zshrc.erb");
   }
 
   if $pathogen {
@@ -63,3 +66,4 @@ define vim::user_config ($home="/home/${title}", $pathogen=false) {
     Vcsrepo <| tag == "${title}_pathogen" |>
   }
 }
+
