@@ -4,8 +4,12 @@ node "ivy" inherits laptop {
     include networking
     include networking::wicd
 
+    # CLI Apps
+    include bash
+
     # GUI Apps
     include firefox
+    include sakura
 
     # Users
     include users::simpson

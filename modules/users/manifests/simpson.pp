@@ -10,6 +10,8 @@ class users::simpson {
         shell      => '/bin/bash',
     }
 
+    include fonts::inconsolata
+
     vim::user_config         { "${username}": }
 
     ruby::dev::user_config   { "${username}": }
