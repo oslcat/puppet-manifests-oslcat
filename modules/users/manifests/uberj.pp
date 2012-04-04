@@ -20,6 +20,7 @@ class users::uberj {
 
   #os::user_config          { "$ { username}": }
   bash::user_config        { "${username}": }
+  xmonad::user_config        { "${username}": }
   ruby::dev::user_config   { "${username}": }
   puppet::dev::user_config { "${username}": }
 }
