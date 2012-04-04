@@ -20,7 +20,10 @@ class users::uberj {
 
   #os::user_config          { "$ { username}": }
   bash::user_config        { "${username}": }
-  xmonad::user_config        { "${username}": }
+  xmonad::user_config        { "${username}":
+    xmonad_template => "users/uberj/xmonad.erb",
+    xmobar_template => "users/uberj/xmobar.erb",
+  }
   ruby::dev::user_config   { "${username}": }
   puppet::dev::user_config { "${username}": }
 }

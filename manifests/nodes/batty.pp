@@ -7,4 +7,5 @@ node "batty" inherits laptop {
   include xmonad
   include xmonad::xmobar
   include keychain
+  include network_manager
 }
