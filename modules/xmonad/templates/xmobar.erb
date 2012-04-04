@@ -1,0 +1,20 @@
+Config {
+       font = "-Misc-Fixed-Normal--13-120-75-75-C-70-ISO8859-1"
+      , bgColor = "black"
+      , fgColor = "grey"
+      , position = TopW C 100
+      , commands = [
+                    Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                   , Run Memory ["-t","Mem: <usedratio>%"] 10
+                   , Run Swap [] 10
+                   , Run Date "%a %b %_d %l:%M" "date" 10
+                   , Run Com "date" ["--uct","+'%H:%M:%S'"] "UTC" 1
+                   , Run Com "date" ["+%s"] "EPOC" 1
+                   , Run Com "mpstat -P 1 | awk 'NR == 4 {print $4}'" [] "Core1" 1
+                   , Run StdinReader
+                   ]
+      , sepChar = "%"
+      , alignSep = "}{"
+      , template = "%StdinReader% }{ <fc=#ee9a00>%date%</fc> | EPOC:<fc=#ee9a00>%EPOC%</fc> | UTC:<fc=#ee9a00>%UTC%</fc>  | %cpu% | %memory% "
+      }
+
