@@ -6,4 +6,5 @@ node "batty" inherits laptop {
   include strace
   include xmonad
   include xmonad::xmobar
+  include keychain
 }
