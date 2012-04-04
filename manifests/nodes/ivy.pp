@@ -6,6 +6,7 @@ node "ivy" inherits laptop {
 
     # CLI Apps
     include bash
+    include midi
 
     # GUI Apps
     include awesome
