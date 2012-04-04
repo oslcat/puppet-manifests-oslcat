@@ -11,3 +11,10 @@ set wm=2
 set textwidth=78
 
 set listchars=tab:>-,eol:$
+
+filetype on
+filetype plugin on
+filetype indent on
+
+" JQuery
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery

@@ -8,6 +8,7 @@ node "ivy" inherits laptop {
     include bash
 
     # GUI Apps
+    include awesome
     include firefox
     include sakura
 

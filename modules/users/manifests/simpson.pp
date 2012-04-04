@@ -12,7 +12,9 @@ class users::simpson {
 
     include fonts::inconsolata
 
-    vim::user_config         { "${username}": }
+    vim::user_config         { "${username}":
+      template => "users/simpson/vimrc.erb",
+    }
 
     ruby::dev::user_config   { "${username}": }
     puppet::dev::user_config { "${username}": }
