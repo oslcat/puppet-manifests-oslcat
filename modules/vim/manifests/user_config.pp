@@ -2,7 +2,7 @@
 define vim::user_config (
   $home="/home/${title}",
   $pathogen=false,
-  $template="vim/vimrc.erb",
+  $template="vim/vimrc.erb"
 ) {
   @file {
     "vim_dir_${title}":
