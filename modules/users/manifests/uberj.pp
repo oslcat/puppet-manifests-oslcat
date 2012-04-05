@@ -19,7 +19,14 @@ class users::uberj {
   }
 
   #os::user_config          { "$ { username}": }
-  bash::user_config        { "${username}": }
+  bash::user_config        { "${username}":
+    template => "users/uberj/bashrc.erb",
+  }
+  # Give root my config
+  bash::user_config        { "root":
+    home=>"/root/",
+    template => "users/uberj/bashrc.erb",
+  }
   xmonad::user_config        { "${username}":
     xmonad_template => "users/uberj/xmonad.erb",
     xmobar_template => "users/uberj/xmobar.erb",

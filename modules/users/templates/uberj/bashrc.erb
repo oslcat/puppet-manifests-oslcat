@@ -8,7 +8,7 @@
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
-PS1_art=""
+PS1_art="(> ^ ^)>"
 
 # Test for an interactive shell.  There is no need to set anything
 # past this point for scp and rcp, and it's important to refrain from
@@ -28,7 +28,7 @@ shopt -s checkwinsize
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
 
-# Change the window title of X terminals
+# Change the window title of X terminals 
 case ${TERM} in
 	xterm*|rxvt*|Eterm|aterm|kterm|gnome*|interix)
 		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
@@ -81,3 +81,44 @@ else
 		PS1='\u@\h \w ${PS1_art}'
 	fi
 fi
+extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xvjf $1        ;;
+            *.tar.gz)    tar xvzf $1     ;;
+            *.bz2)       bunzip2 $1       ;;
+            *.rar)       unrar x $1     ;;
+            *.gz)        gunzip $1     ;;
+            *.tar)       tar xvf $1        ;;
+            *.tbz2)      tar xvjf $1      ;;
+            *.tgz)       tar xvzf $1       ;;
+            *.zip)       unzip $1     ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1    ;;
+            *)           echo "'$1' cannot be extracted via >extract<" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+# dircolors
+EDITOR=vim
+PATH=$PATH:/sbin/
+
+# git settings
+GIT_COMMITER_NAME="uberj"
+GIT_COMMITER_EMAIL="uberj@onid.orst.edu"
+GIT_AUTHOR_NAME="Jacques Uber"
+GIT_AUTHOR_EMAIL="uberj@onid.orst.edu"
+
+# Try to keep environment pollution down, EPA loves us.
+unset use_color safe_term match_lhs
+alias d='ls -l | grep -E ^d'
+alias f='ls -l | grep -E ^[^d]'
+alias ll='ls -lah'
+alias sl='ls'
+alias term1="rdesktop -T'nws-term1.nws.oregonstate.edu - Terminal Server Client' -rsound:local -rclipboard:PRIMARYCLIPBOARD -b -4 nws-term1.nws.oregonstate.edu -uuberj -donid"
+alias dud="$HOME/.file_usage"
+alias pyclean="rm *.pyc"
+alias assh="ssh -A"
