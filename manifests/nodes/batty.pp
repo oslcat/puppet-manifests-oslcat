@@ -6,6 +6,7 @@ node "batty" inherits laptop {
   include strace
   include xmonad
   include xmonad::xmobar
+  include xscreensaver
   include keychain
 
   class { "network_manager":
