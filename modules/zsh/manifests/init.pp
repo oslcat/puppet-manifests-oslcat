@@ -7,7 +7,7 @@ class zsh {
 }
 
 # config!
-define zsh::user_config ($home="/home/${title}", template="zsh/zshrc.erb") {
+define zsh::user_config ($home="/home/${title}", $template="zsh/zshrc.erb") {
 
     @file {
         "${title}_zsh_dir":
