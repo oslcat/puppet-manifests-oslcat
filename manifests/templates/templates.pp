@@ -17,6 +17,7 @@ node base inherits core {
 
   include git
   include python::dev
+  include bc
 }
 
 node server inherits base {
