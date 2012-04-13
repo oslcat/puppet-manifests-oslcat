@@ -15,9 +15,10 @@ node base inherits core {
     "wheel": ensure => present;
   }
 
-  include git
   include python::dev
   include bc
+
+  class { "git": hub => true }
 }
 
 node server inherits base {
