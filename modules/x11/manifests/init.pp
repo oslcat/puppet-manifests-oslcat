@@ -10,11 +10,12 @@ class x11 {
     package {
       "xorg-utils":;
       "xorg-server-utils":;
+      "mesa-demos":;
+      "${x11::params::package_mesa}":;
     }
   }
-  if $::operatingsystem !~ /Fedora/ {
+  if $::operatingsystem =~ /Ubuntu/ {
     package {
-      "mesa-demos":;
       "${x11::params::package_mesa}":;
     }
   }
