@@ -11,6 +11,7 @@ node "ivy" inherits laptop {
     # GUI Apps
     include awesome
     include firefox
+    include puzzles
     include sakura
 
     # Users

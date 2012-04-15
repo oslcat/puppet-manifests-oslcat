@@ -11,6 +11,7 @@ node "bane" inherits desktop {
     # GUI Apps
     include awesome
     include firefox
+    include puzzles
     include sakura
 
     # Users
