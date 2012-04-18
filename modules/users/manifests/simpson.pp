@@ -12,6 +12,10 @@ class users::simpson {
 
   include fonts::inconsolata
 
+  git::user_config { "${username}":
+    template => "users/simpson/gitconfig.erb",
+  }
+
   vim::user_config         { "${username}":
     template => "users/simpson/vimrc.erb",
   }
