@@ -6,6 +6,7 @@ node "harley" inherits laptop {
 
     # CLI Apps
     include bash
+    include keychain
     include midi
 
     # GUI Apps
