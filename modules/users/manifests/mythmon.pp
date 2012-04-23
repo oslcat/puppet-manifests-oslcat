@@ -1,17 +1,17 @@
-class users::mythmon {
+class users::mythmon ($user=true) {
   $username = "mythmon"
   $home = "/home/mythmon"
 
-  include zsh
-
-  user { "${username}":
-    ensure     => present,
-    home       => "/home/${username}",
-    gid        => "users",
-    groups     => ['users', 'wheel'],
-    managehome => true,
-    shell      => '/bin/zsh',
-    require    => Package['zsh'],
+  if $user {
+    user { "${username}":
+      ensure     => present,
+      home       => "/home/${username}",
+      gid        => "users",
+      groups     => ['users', 'wheel'],
+      managehome => true,
+      shell      => '/bin/zsh',
+      require    => Package['zsh'],
+    }
   }
 
   file {

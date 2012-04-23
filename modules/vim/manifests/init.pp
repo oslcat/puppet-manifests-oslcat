@@ -1,9 +1,11 @@
-class vim {
+class vim ($system=true) {
   include vim::params
 
-  package { "vim":
-    ensure => present,
-    name   => "${vim::params::packagename}",
+  if $system {
+    package { "vim":
+      ensure => present,
+      name   => "${vim::params::packagename}",
+    }
   }
 
   File <| tag == "vim" |>

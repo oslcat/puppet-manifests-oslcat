@@ -10,4 +10,6 @@ class git ($hub=false) {
       false => absent,
     }
   }
+
+  File <| title == "git" |>
 }

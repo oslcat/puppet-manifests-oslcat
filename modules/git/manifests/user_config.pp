@@ -3,8 +3,9 @@ define git::user_config (
   $home="/home/${title}",
   $template="git/gitconfig.erb"
 ) {
-  file { "${title}-gitconfig":
+  @file { "${title}-gitconfig":
     path    => "${home}/.gitconfig",
+    tag     => "git",
     ensure  => present,
     content => template("${template}"),
   }
