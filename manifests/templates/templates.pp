@@ -26,7 +26,6 @@ node server inherits base {
 
 node gui inherits base {
   include x11
-  include fonts::all
 }
 
 node laptop inherits gui {

@@ -1,5 +1,5 @@
-node "batty" inherits laptop {
-  include users::uberj
+node "uberj.nws.oregonstate.edu" inherits laptop {
+  include users::uberj_work
   include bash
   include wget
   include htop
@@ -10,6 +10,6 @@ node "batty" inherits laptop {
   include keychain
 
   class { "network_manager":
-    ensure => "purged",
+    ensure => "present",
   }
 }
