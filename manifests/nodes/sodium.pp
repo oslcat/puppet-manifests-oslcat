@@ -1,6 +1,5 @@
 node "sodium.electricgrey.com" inherits server {
-  # CLI Apps
-  include lftp
+  include mythmon_base
 
   include users::mythmon
   group { "users": ensure => present, }

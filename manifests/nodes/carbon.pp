@@ -1,11 +1,8 @@
 node "carbon.osuosl.org" inherits desktop {
+  include mythmon_gui
+
   # GUI Apps
   include dmenu
-  #include firefox
-  include flash
-
-  # CLI Apps
-  include lftp
 
   include users::mythmon
   User <| $name == "mythmon" |> {

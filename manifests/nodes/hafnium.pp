@@ -1,11 +1,8 @@
 node "hafnium.electricgrey.com" inherits desktop {
+  include mythmon_base
+
   # GUI Apps
   include dmenu
-  #include firefox
-  include flash
-
-  # CLI Apps
-  include lftp
 
   include users::mythmon
   # Configs

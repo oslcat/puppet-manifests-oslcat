@@ -1,15 +1,10 @@
 node "chrome.electricgrey.com" inherits laptop {
+  include mythmon_gui
+
   # System
   include ntp
   include networking
   include networking::wpa_supplicant
-
-  # GUI Apps
-  include firefox
-
-  # CLI Apps
-  include ncmpcpp
-  include lftp
 
   include users::mythmon
 }

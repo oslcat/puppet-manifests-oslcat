@@ -1,6 +1,5 @@
 node "silicon.electricgrey.com" inherits server {
-  # CLI Apps
-  include lftp
+  include mythmon_base
 
   include users::mythmon
   User <| $title == "mythmon" |> {

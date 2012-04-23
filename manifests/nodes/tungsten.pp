@@ -1,4 +1,6 @@
 node "tungsten.electricgrey.com" inherits laptop {
+  include mythmon_gui
+
   # System
   include acpi
   include pm
@@ -12,13 +14,9 @@ node "tungsten.electricgrey.com" inherits laptop {
   # Apps
   include openbox
   include dmenu
-  include firefox
-  include flash
   include terminator
 
   include conky
-  include ncmpcpp
-  include lftp
 
   include users::mythmon
 }
