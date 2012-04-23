@@ -1,4 +1,4 @@
-node "chrome.electricgrey.com" inherits laptop {
+node "iron" inherits laptop {
     # System
     include ntp
     include networking
