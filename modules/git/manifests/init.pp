@@ -13,5 +13,5 @@ class git ($hub=false, $system=true) {
     }
   }
 
-  File <| title == "git" |>
+  File <| tag == "git" |>
 }
