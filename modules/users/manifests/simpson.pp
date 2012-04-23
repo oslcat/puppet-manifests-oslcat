@@ -1,6 +1,7 @@
-class users::simpson {
+class users::simpson ($user=true) {
   $username = "simpson"
 
+  if $user {
     user { "${username}":
       ensure     => present,
       home       => "/home/${username}",
@@ -9,6 +10,7 @@ class users::simpson {
       managehome => true,
       shell      => '/bin/bash',
     }
+  }
 
   include fonts::inconsolata
 
