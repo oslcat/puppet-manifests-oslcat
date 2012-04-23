@@ -43,6 +43,10 @@ class users::mythmon {
     template => "users/mythmon/zshrc.erb"
   }
 
+  git::user_config { "${username}":
+    template => "users/mythmon/gitconfig.erb",
+  }
+
 
   @file {
     "${username}_zshd":
