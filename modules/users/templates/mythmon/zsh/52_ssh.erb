@@ -1,22 +1,5 @@
-SSH_ENV="$HOME/.ssh/environment"
+#!/bin/zsh
 
-function start_agent {
-     echo "Initialising new SSH agent..."
-     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-     echo succeeded
-     chmod 600 "${SSH_ENV}"
-     . "${SSH_ENV}" > /dev/null
-}
-
-# Source SSH settings, if applicable
-
-if [ -f "${SSH_ENV}" ]; then
-     . "${SSH_ENV}" > /dev/null
-     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-         start_agent;
-     }
-else
-     start_agent;
-fi
-
-alias ssh-fingerprint ssh-keygen -l -f
+# Load all private key files. (files that start with 'id_', but do not end in '.pub')
+keychain --quiet $HOME/.ssh/id_*~*.pub
+source $HOME/.keychain/$(hostname)-sh
