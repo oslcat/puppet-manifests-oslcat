@@ -1,0 +1,13 @@
+TRAPUSR1() {
+  source $HOME/.zshrc
+}
+
+function reload() {
+  if [[ -z $1 ]]; then
+    kill -USR1 $$
+  else
+    pkill -USR1 -x zsh
+  fi
+}
+
+# vim: ft=zsh

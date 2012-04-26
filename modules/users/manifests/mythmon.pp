@@ -75,6 +75,13 @@ class users::mythmon ($user=true) {
       owner   => $username,
       group   => "users",
       ensure  => present;
+    "${username}-02_signals":
+      path    => "${home}/.zshrc.d/02_signals",
+      content => template("users/mythmon/zsh/02_signals.erb"),
+      tag     => "zsh",
+      owner   => $username,
+      group   => "users",
+      ensure  => present;
     "${username}-10_autoterm":
       path    => "${home}/.zshrc.d/10_autoterm",
       content => template("users/mythmon/zsh/10_autoterm.erb"),
