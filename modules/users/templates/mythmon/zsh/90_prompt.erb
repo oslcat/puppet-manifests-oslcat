@@ -28,7 +28,7 @@ add-zsh-hook preexec preexec_prompt
 # Called right before drawing a prompt.
 precmd_prompt () {
     lastexit=$?
-    pstime="%F{cyan}%T%f"
+    pstime="%F{brgreen}%T%f"
     pspath="%F{green}%~%f"
     pshost="%F{$(hash_color $(hostname))}%m%f"
     psuser="%n"
@@ -75,6 +75,12 @@ precmd_prompt () {
     else
         psvcs=""
     fi
+
+    if [[ -z $(ssh-add -l) ]]; then
+        keychain=" "
+    else
+        keychain="%F{cyan}⚷%f"
+    fi
 }
 
 add-zsh-hook precmd precmd_prompt 
@@ -86,6 +92,6 @@ TRAPALRM () {
 
 
 PROMPT='${psat}${pshost}> '
-RPROMPT='${pspath}${psvcs} ${pstime}'
+RPROMPT='${pspath}${psvcs}${keychain}${pstime}'
 
 #EOF vim: ft=zsh

@@ -1,5 +1,5 @@
-#!/bin/zsh
-
 # Load all private key files. (files that start with 'id_', but do not end in '.pub')
-keychain --quiet $HOME/.ssh/id_*~*.pub
+keychain --quiet --quick --agents ssh --inherit any $HOME/.ssh/id_*~*.pub
 source $HOME/.keychain/$(hostname)-sh
+
+# vim: ft=zsh
