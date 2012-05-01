@@ -11,10 +11,8 @@ Facter.add(:ipaddress) do
 
     if FileTest.exists?('/sbin/ip')
       output = %x{/sbin/ip addr}
-      puts "USING IP"
     else
       output = %x{/sbin/ifconfig}
-      puts "USING IFCONFIG"
     end
 
     output.split(/^\S/).each { |str|
