@@ -4,3 +4,6 @@
 [submodule "modules/vim/files/pathogen"]
 	path = modules/vim/files/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule "modules/hiera-puppet"]
+	path = modules/hiera-puppet
+	url = https://github.com/puppetlabs/hiera-puppet.git
