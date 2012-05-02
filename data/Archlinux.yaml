@@ -1,5 +1,0 @@
----
-basic_needs: - htop
-             - git
-             - vim
-             - iptraf

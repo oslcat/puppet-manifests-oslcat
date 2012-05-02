@@ -6,7 +6,7 @@ node 'observatory.cat.pdx.edu'{
 
   class {
     'setup':  stage => 'setup';
-#    'post':   stage => 'main';
+    'post':   stage => 'main';
   }
 
 }

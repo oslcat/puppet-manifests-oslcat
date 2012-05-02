@@ -1,2 +1,5 @@
 ---
-best_in_class : 'no'
+best_in_class: 'no'
+number: 999
+string: '999'
+permit_root_login : 'no'

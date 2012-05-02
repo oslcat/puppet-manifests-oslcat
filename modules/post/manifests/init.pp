@@ -14,8 +14,4 @@ class post{
     ensure  => latest;
   }
   
-  file {$best_in_class:
-    ensure => present,
-    mode   => 0644;
-  }
 }
