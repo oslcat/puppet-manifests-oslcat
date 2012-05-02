@@ -1,24 +1,37 @@
+" Python-style tabbing. Four spaces to the tabstop, expand tabs.
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" Seriously, save your eyes.
 set background=dark
 
-let python_highlight_all=1
+" You want these. You just do.
 set autoindent smartindent
 
+" Enable ~ as a general verb that acts on any motion.
+set tildeop
+
+" Word wrapping mode and width. Good for most things.
 set wm=2
 set textwidth=78
 
+" Characters for list mode.
 set listchars=tab:>-,eol:$
 
+" Force 256 colors.
+set t_Co=256
+
+" I dunno, I like this color. I think.
+colo candycode
+
+" Enable general filetype-specific stuff.
 filetype on
 filetype plugin on
 filetype indent on
 
-set t_Co=256
-
-colo candycode
+" This is necessary in order to get Python builtins highlighted.
+let python_highlight_all=1
 
 " JQuery
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
