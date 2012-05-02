@@ -1,5 +1,5 @@
 ---
-basic_needs: - 'htop'
-             - 'git'
-             - 'vim'
-             - 'iptraf'
+basic_needs: - htop
+             - git
+             - vim
+             - iptraf
