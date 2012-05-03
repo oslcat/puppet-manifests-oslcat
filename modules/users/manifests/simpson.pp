@@ -1,6 +1,4 @@
-class users::simpson ($user=true) {
-  $username = "simpson"
-
+class users::simpson ($username="simpson", $user=true) {
   if $user {
     user { "${username}":
       ensure     => present,

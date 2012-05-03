@@ -10,14 +10,14 @@ class ruby::dev {
 
 define ruby::dev::user_config ($home="/home/${title}") {
   @file {
-    "ruby-vim-ftdetect":
+    "${title}-ruby-vim-ftdetect":
       path    => "${home}/.vim/ftdetect/ruby.vim",
       content => template("ruby/ruby.vim.ftdetect.erb"),
       tag     => "vim",
       owner   => "${title}",
       group   => "users",
       ensure  => present;
-    "ruby-vim-ftplugin":
+    "${title}-ruby-vim-ftplugin":
       path    => "${home}/.vim/ftplugin/ruby.vim",
       content => template("ruby/ruby.vim.ftplugin.erb"),
       tag     => "vim",

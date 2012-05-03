@@ -5,7 +5,9 @@ node /.*\.workstation\.osuosl\.org/ inherits workstation {
 node workstation {
   class {
     "users::mythmon": user => false;
-    "users::simpson": user => false;
+    "users::simpson":
+        user => false,
+        username => "simpsoco";
 
     "git": system => false;
     "vim": system => false;
