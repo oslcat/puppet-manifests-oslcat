@@ -4,3 +4,9 @@
 [submodule "modules/vim/files/pathogen"]
 	path = modules/vim/files/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule "modules/hiera-puppet"]
+	path = modules/hiera-puppet
+	url = https://github.com/puppetlabs/hiera-puppet.git
+[submodule "modules/singleton"]
+	path = modules/singleton
+	url = git@github.com:pdxcat/puppet-module-singleton.git
