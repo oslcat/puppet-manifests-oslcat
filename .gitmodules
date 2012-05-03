@@ -7,3 +7,6 @@
 [submodule "modules/hiera-puppet"]
 	path = modules/hiera-puppet
 	url = https://github.com/puppetlabs/hiera-puppet.git
+[submodule "modules/singleton"]
+	path = modules/singleton
+	url = git@github.com:pdxcat/puppet-module-singleton.git
