@@ -1,3 +1,4 @@
-Puppet files for my computers.
+Shared puppet configs for some individuals at the [OSUOSL][], [PSU CAT][], and co.
 
-Nothing too fancy, most things are fairly homogenous.
+[OSUOSL]: http://osuosl.org
+[PSU CAT]:  http://cat.pdx.edu
