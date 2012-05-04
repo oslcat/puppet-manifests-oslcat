@@ -45,6 +45,7 @@ class users::mythmon ($user=true) {
     template => "users/mythmon/vimrc.erb",
     pathogen => true,
   }
+  vim::solarized { $username: }
   git::user_config { $username:
     template => "users/mythmon/gitconfig.erb",
   }
