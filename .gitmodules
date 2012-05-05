@@ -10,3 +10,6 @@
 [submodule "modules/singleton"]
 	path = modules/singleton
 	url = git@github.com:pdxcat/puppet-module-singleton.git
+[submodule "modules/apt"]
+	path = modules/apt
+	url = git://github.com/puppetlabs/puppet-apt.git
