@@ -1,6 +1,6 @@
 class post{
   $os_defaults         = hiera('os_defaults')
-  $nibz_extensions     = hiera('nibz_extentions')
+  $nibz_extensions     = hiera('nibz_extensions')
 
   notify{'here_i_am':
     message => 'rockin like a hurricane';
