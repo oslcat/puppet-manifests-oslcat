@@ -12,8 +12,6 @@ class users::simpson ($user=true) {
     }
   }
 
-  include fonts::inconsolata
-
   git::user_config { "${username}":
     template => "users/simpson/gitconfig.erb",
   }
