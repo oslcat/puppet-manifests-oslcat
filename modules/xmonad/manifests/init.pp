@@ -1,7 +1,7 @@
 class xmonad {
   include xmonad::params
 
-  package {
+  util::system_package {
     "xmonad-core":
       name   => "${xmonad::params::package_xmonad_core}",
       ensure => latest;

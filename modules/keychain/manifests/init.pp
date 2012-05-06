@@ -1,9 +1,7 @@
 class keychain {
   include keychain::params
-  package { "keychain":
-    ensure => latest,
-  }
-  package { "${keychain::params::package_askpass}":
-    ensure => latest,
+  util::system_package {
+    "keychain":;
+    "${keychain::params::package_askpass}":;
   }
 }

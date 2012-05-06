@@ -1,9 +1,9 @@
 class firefox {
-    package { "firefox":
+  util::system_package { "firefox":
         ensure  => latest;
     }
     if ($operatingsystem == "Arch") {
-        package {"libpng":
+        util::system_package {"libpng":
             ensure => latest;
         }
     }

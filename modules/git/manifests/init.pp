@@ -1,16 +1,12 @@
-class git ($hub=false, $system=true) {
-  if $system {
-    package { "git":
-      ensure => present,
-    }
-
-    package { "hub":
+class git ($hub=false) {
+  util::system_package {
+    "git":;
+    "hub":
       provider => "gem",
       ensure   => $hub ? {
-        true  => present,
+        true  => latest,
         false => absent,
-      }
-    }
+      };
   }
 
   File <| tag == "git" |>
