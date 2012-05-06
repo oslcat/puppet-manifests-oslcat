@@ -1,6 +1,6 @@
 class post{
-  $best_in_class  = hiera('best_in_class')
-  $basic_needs    = hiera('basic_needs')
+  $os_defaults         = hiera('os_defaults')
+  $nibz_extensions     = hiera('nibz_extentions')
 
   notify{'here_i_am':
     message => 'rockin like a hurricane';
@@ -10,7 +10,7 @@ class post{
     message => "ipaddress => ${::ipaddress}";
   }
 
-  util::system_package {$basic_needs:
+  util::system_package {[$basic_needs, $nibz_extensions]:
     ensure  => latest;
   }
 }

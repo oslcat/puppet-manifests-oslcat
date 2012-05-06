@@ -1,5 +1,5 @@
 ---
-server_packages :  htop
+os_defauts:  htop
         iptraf
         ebtables
         a52dec

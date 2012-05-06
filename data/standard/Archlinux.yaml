@@ -1,4 +1,5 @@
 ---
-basic_needs       :  htop
+nibz_extensions:  htop
   iptraf
   ebtables
+  ngrep
