@@ -1,4 +1,4 @@
-node "core" {
+node "whopper" {
   class { 'mirror::source':
     mirror => 'cat',
   }
