@@ -1,6 +1,7 @@
 class awesome {
   yumrepo { "awesome":
     name     => "fedora-awesome",
+    descr    => "Fedora - Awesome",
     baseurl  => "http://repos.fedorapeople.org/repos/thm/awesome/fedora-\$releasever/\$basearch/",
     enabled  => 1,
     gpgcheck => 0,
