@@ -1,4 +1,16 @@
-class bc { package { "bc": ensure => latest; }}
-class keychain { package { "keychain": ensure => latest; }}
-class pacman { package { "pacman": ensure => latest; }}
-class puzzles { package { "puzzles": ensure => latest; }}
+class bc { util::system_package { "bc": }}
+class curl { util::system_package { "curl": }}
+class keychain { util::system_package { "keychain": }}
+class pacman { util::system_package { "pacman": }}
+class puzzles { util::system_package { "puzzles": }}
+class ncmpcpp { util::system_package { "ncmpcpp": }}
+class pm { util::system_package { "pm-utils": }}
+class wget { util::system_package { "wget": }}
+class strace { util::system_package { "strace": }}
+class xscreensaver { util::system_package { "xscreensaver": }}
+class sakura { util::system_package { "sakura": }}
+class flash { util::system_package { "flashplugin": }}
+class htop { util::system_package { "htop": }}
+class ntp { util::system_package { "ntp": }}
+class lftp { util::system_package { "lftp": }}
+class dmenu { util::system_package { "dmenu": }}

@@ -5,7 +5,7 @@ class xmonad::xmobar (
 {
   include xmonad::params
 
-  package {
+  util::system_package {
     "xmobar":
       name   => "${xmonad::params::package_xmobar}",
       ensure => latest,
