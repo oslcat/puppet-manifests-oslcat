@@ -15,3 +15,8 @@ class mad_base {
 
   include users::simpson
 }
+
+class mad_audio inherits mad_base {
+  include audio::dev
+  include midi
+}
