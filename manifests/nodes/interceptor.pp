@@ -7,11 +7,11 @@ node "interceptor.nibalizer.com" {
   }
   
   class {'workstation::role::development':
-    users => ['nibz'],
+    user => ['nibz'],
   }
 
   class {'workstation::role::itops':
-    users => ['nibz'],
+    user => ['nibz'],
   }
 
 }
