@@ -1,6 +1,6 @@
 class puppet {
   if $::operatingsystem != "Archlinux" {
-    package { "puppet":
+    util::system_package { "puppet":
       ensure => latest,
     }
   }

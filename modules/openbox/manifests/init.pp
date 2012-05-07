@@ -1,5 +1,5 @@
 class openbox {
-    package { "openbox":
+  util::system_package { "openbox":
         ensure => latest,
     }
 

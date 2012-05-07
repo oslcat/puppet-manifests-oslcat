@@ -1,5 +1,5 @@
 class conky {
-    package { "conky":
+  util::system_package { "conky":
         ensure => latest,
     }
 

@@ -10,8 +10,7 @@ class post{
     message => "ipaddress => ${::ipaddress}";
   }
 
-  package {$basic_needs:
+  util::system_package {$basic_needs:
     ensure  => latest;
   }
-  
 }

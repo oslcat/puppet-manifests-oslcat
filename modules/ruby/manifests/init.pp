@@ -1,5 +1,5 @@
 class ruby {
-  package {'ruby':
+  util::system_package {'ruby':
     ensure => latest,
   }
 }

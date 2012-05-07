@@ -1,7 +1,7 @@
 class networking::wpa_supplicant($interface="wlan0") {
   include networking::params
 
-  package {"wpa_supplicant":
+  util::system_package {"wpa_supplicant":
     name   => $networking::params::wpasupplicant_package,
     ensure => present,
   }

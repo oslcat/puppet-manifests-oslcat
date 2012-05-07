@@ -1,5 +1,7 @@
 class terminator {
-    package { "terminator":
+    util::system_package { "terminator":
         ensure => present,
     }
+
+    File <| tag == "terminator" |>
 }

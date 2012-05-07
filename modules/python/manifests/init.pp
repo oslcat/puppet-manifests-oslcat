@@ -1,11 +1,11 @@
 class python {
-  package {
+  util::system_package {
     "python": ensure => present;
   }
 }
 
 class python::dev {
-  package {
+  util::system_package {
     "python-pip": ensure => present;
   }
 }
