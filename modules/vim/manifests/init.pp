@@ -3,8 +3,8 @@ class vim ($system=true) {
 
   if $system {
     util::system_package { "vim":
-      ensure => present,
-      name   => "${vim::params::packagename}",
+      ensure   => present,
+      pkg_name => "${vim::params::packagename}",
     }
   }
 
