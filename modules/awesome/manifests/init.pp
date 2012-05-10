@@ -1,5 +1,4 @@
 class awesome {
-<<<<<<< HEAD
   if $::system {
     yumrepo { "awesome":
       name     => "fedora-awesome",
