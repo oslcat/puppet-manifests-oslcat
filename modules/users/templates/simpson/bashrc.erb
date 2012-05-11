@@ -89,6 +89,9 @@ unset use_color safe_term match_lhs
 # Force PST for sanity's sake, e.g. in irssi.
 [[ -f /usr/share/zoneinfo/PST8PDT ]] && export TZ="/usr/share/zoneinfo/PST8PDT"
 
+# Inputrc.
+export INPUTRC=~/.inputrc
+
 # Aliases.
 
 # ncmpc colors
@@ -107,6 +110,8 @@ alias screen="screen -D -R -U"
 # SVN utils to make it more like git (e.g. suck less)
 alias svndiff="svn diff -x -u --diff-cmd colordiff | less -FR"
 alias svnds="svn diff | diffstat"
+alias svngrep="grep --exclude-dir=.svn -R"
+[[ -f "/home/simpson/.config/autopackage/paths-bash" ]] && . "/home/simpson/.config/autopackage/paths-bash"
 
 # Add local binaries (virtualenv) to path.
 [[ -d ~/local/bin ]] && PATH="~/local/bin:$PATH"
