@@ -1,4 +1,5 @@
 class mythmon_base {
+  include setup
   include lftp
   include ncmpcpp
   include zsh
