@@ -13,19 +13,18 @@ class users::simpson ($username='simpson') {
   }
 
   if ($::system) or ($::id == $username) {
-    bash::user_config        { $username:
+    base::user_config { $username:
       template => 'users/simpson/bashrc.erb',
     }
-
-    git::user_config         { $username:
+    git::user_config { $username:
       template => 'users/simpson/gitconfig.erb',
     }
-
-    vim::user_config         { $username:
+    vim::user_config { $username:
       template => 'users/simpson/vimrc.erb',
     }
 
-    ruby::dev::user_config   { $username: }
+
+    ruby::dev::user_config { $username: }
     puppet::dev::user_config { $username: }
   }
 }

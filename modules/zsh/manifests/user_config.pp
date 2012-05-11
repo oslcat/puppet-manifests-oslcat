@@ -1,19 +1,21 @@
 # config!
-define zsh::user_config ($home="/home/${title}", $template="zsh/zshrc.erb") {
-
+define zsh::user_config (
+  $home="/home/${title}",
+  $template='zsh/zshrc.erb'
+) {
   @file {
     "${title}_zsh_dir":
-      path   => "${home}/.zsh",
-      tag    => "zsh",
-      owner  => "${title}",
-      group  => "users",
       ensure => directory;
+      path   => "${home}/.zsh",
+      tag    => 'zsh',
+      owner  => $title,
+      group  => 'users',
     "${title}-zshrc":
-      path    => "${home}/.zshrc",
-      content => template("${template}"),
-      tag     => "zsh",
-      owner   => "${title}",
-      group   => "users",
       ensure  => present;
+      path    => "${home}/.zshrc",
+      content => template($template),
+      tag     => 'zsh',
+      owner   => $title,
+      group   => 'users',
   }
 }

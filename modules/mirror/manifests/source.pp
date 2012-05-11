@@ -2,8 +2,8 @@ class mirror::source (
   $mirror
 ) {
 
-  if ! ($operatingsystem in ['Ubuntu']) {
-    fail("class does not support $operatingsystem")
+  if ! ($::operatingsystem in ['Ubuntu']) {
+    fail("class does not support $::operatingsystem")
   }
 
 # This means that all future desired repositories must be managed by Puppet

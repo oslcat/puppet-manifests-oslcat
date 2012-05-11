@@ -11,14 +11,14 @@ node core {
 
 node base inherits core {
   group {
-    "users": ensure => present;
-    "wheel": ensure => present;
+    'users': ensure => present;
+    'wheel': ensure => present;
   }
 
   include python::dev
   include bc
 
-  class { "git": hub => true }
+  class { 'git': hub => true }
 }
 
 node server inherits base {

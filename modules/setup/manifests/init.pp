@@ -1,13 +1,13 @@
 class setup{
   util::system_package {
     'hiera':
+      ensure   => present,
       source   => 'http://web.cecs.pdx.edu/~nibz/rubygems',
-      provider => gem,
-      ensure   => present;
+      provider => gem;
     'hiera-puppet-nibz':
+      ensure   => present,
       source   => 'http://web.cecs.pdx.edu/~nibz/rubygems',
-      provider => gem,
-      ensure   => present;
+      provider => gem;
     'puppet-lint':
       provider => gem;
   }
