@@ -3,13 +3,13 @@ class setup{
     'hiera':
       source   => 'http://web.cecs.pdx.edu/~nibz/rubygems',
       provider => gem,
-      ensure   => present,
-  }
-  util::system_package {
+      ensure   => present;
     'hiera-puppet-nibz':
       source   => 'http://web.cecs.pdx.edu/~nibz/rubygems',
       provider => gem,
-      ensure   => present,
+      ensure   => present;
+    'puppet-lint':
+      provider => gem;
   }
   file {
     '/home/nibz/.puppet/hiera.yaml':
