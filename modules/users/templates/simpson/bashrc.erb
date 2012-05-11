@@ -98,11 +98,11 @@ alias ncmpc="ncmpc -c"
 alias optipng="optipng -v -o6"
 
 # Python autocomplete in shell
-alias pysh='python -ic "import readline, rlcompleter;
+alias pysh='python -i -c "import readline, rlcompleter;
 readline.parse_and_bind('\''tab:complete'\'')"'
 
 # screen auto-grab
-alias screen="screen -D -R"
+alias screen="screen -D -R -U"
 
 # SVN utils to make it more like git (e.g. suck less)
 alias svndiff="svn diff -x -u --diff-cmd colordiff | less -FR"
@@ -110,3 +110,8 @@ alias svnds="svn diff | diffstat"
 
 # Add local binaries (virtualenv) to path.
 [[ -d ~/local/bin ]] && PATH="~/local/bin:$PATH"
+
+export DEBFULLNAME="Corbin Simpson"
+export DEBEMAIL="MostAwesomeDude@gmail.com"
+
+shopt -s globstar
