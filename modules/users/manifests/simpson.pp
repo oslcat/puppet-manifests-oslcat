@@ -13,6 +13,10 @@ class users::simpson ($username="simpson") {
   }
 
   if ($::system) or ($id == $username) {
+    bash::user_config        { "${username}":
+      template => "users/simpson/bashrc.erb",
+    }
+
     git::user_config { "${username}":
       template => "users/simpson/gitconfig.erb",
     }
