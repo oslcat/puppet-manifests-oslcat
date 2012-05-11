@@ -1,9 +1,9 @@
-class users::simpson ($username="simpson") {
-  if $system {
-    user { "${username}":
+class users::simpson ($username='simpson') {
+  if $::system {
+    user { $username:
       ensure     => present,
       home       => "/home/${username}",
-      gid        => "users",
+      gid        => 'users',
       groups     => ['users', 'wheel'],
       managehome => true,
       shell      => '/bin/bash',
@@ -12,16 +12,20 @@ class users::simpson ($username="simpson") {
     include fonts::inconsolata
   }
 
-  if ($::system) or ($id == $username) {
-    git::user_config { "${username}":
-      template => "users/simpson/gitconfig.erb",
+  if ($::system) or ($::id == $username) {
+    bash::user_config        { $username:
+      template => 'users/simpson/bashrc.erb',
     }
 
-    vim::user_config         { "${username}":
-      template => "users/simpson/vimrc.erb",
+    git::user_config         { $username:
+      template => 'users/simpson/gitconfig.erb',
     }
 
-    ruby::dev::user_config   { "${username}": }
-    puppet::dev::user_config { "${username}": }
+    vim::user_config         { $username:
+      template => 'users/simpson/vimrc.erb',
+    }
+
+    ruby::dev::user_config   { $username: }
+    puppet::dev::user_config { $username: }
   }
 }
