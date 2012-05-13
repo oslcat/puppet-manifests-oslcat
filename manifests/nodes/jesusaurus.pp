@@ -5,7 +5,8 @@ node "fritz" inherits laptop {
   }
 
   class { 'users::jesusaurus': 
-    home => '/home/jesusaurus',
+    home       => '/home/jesusaurus',
+    github_key => '/home/jesusaurus/.ssh/imbatman',
   }
 
 }
