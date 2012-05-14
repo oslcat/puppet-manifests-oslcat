@@ -120,3 +120,6 @@ export DEBFULLNAME="Corbin Simpson"
 export DEBEMAIL="MostAwesomeDude@gmail.com"
 
 shopt -s globstar
+
+# Add all keys to the keychain.
+eval `keychain --nogui --eval ~/.ssh/id_!(*.pub)`
