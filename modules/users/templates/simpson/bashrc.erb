@@ -86,6 +86,9 @@ unset use_color safe_term match_lhs
 # If vim's around, let's use it.
 (which vim &> /dev/null) && alias vi="vim"; export EDITOR=vim
 
+# Ditto for Fx.
+(which firefox &> /dev/null) && export BROWSER=firefox
+
 # Force PST for sanity's sake, e.g. in irssi.
 [[ -f /usr/share/zoneinfo/PST8PDT ]] && export TZ="/usr/share/zoneinfo/PST8PDT"
 
