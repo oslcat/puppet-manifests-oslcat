@@ -1,6 +1,6 @@
 class users::nibz($user=true) {
   $username = 'nibz'
-  $home     = '/home/mythmon'
+  $home     = '/home/nibz'
   $uid      = 1861
 
   if $system {

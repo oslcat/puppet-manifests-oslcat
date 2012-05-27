@@ -1,3 +1,3 @@
 class workstation::role::itops::nibz{
-  include user::nibz
+  include users::nibz
 }

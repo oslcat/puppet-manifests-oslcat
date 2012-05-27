@@ -1,3 +1,7 @@
 class workstation::role::development::nibz{
-  include user::nibz
+  include users::nibz
+  notify {
+    'hai':
+       message => 'hola',
+  }
 }
