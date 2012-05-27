@@ -1,5 +1,5 @@
 class workstation::role::itops(
-  user = [],
+  $user = [],
 ){
  include "workstation::role::itops::$user"
 }

@@ -1,5 +1,5 @@
 class workstation::role::development(
-  user = [],
+  $user = [],
 ){
   include "workstation::role::development::$user"
 }

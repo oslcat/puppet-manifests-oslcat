@@ -9,7 +9,7 @@ class users::nibz($user=true) {
       home       => $home,
       uid        => $uid,
       gid        => "users",
-      groups     => ['users', 'wheel'],
+      groups     => ['users',],
       managehome => true,
       shell      => '/bin/zsh',
       require    => Package['zsh'],
@@ -50,10 +50,10 @@ class users::nibz($user=true) {
     }
     vim::solarized { $username: }
     git::user_config { $username:
-      template => "users/nibalizer/gitconfig.erb",
+      template => "users/nibz/gitconfig.erb",
     }
     zsh::user_config { $username:
-      template => "users/nibalizer/zshrc.erb"
+      template => "users/nibz/zshrc.erb"
     }
 
 

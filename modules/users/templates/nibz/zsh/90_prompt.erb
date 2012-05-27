@@ -76,11 +76,6 @@ precmd_prompt () {
         psvcs=""
     fi
 
-    if [[ -z $(ssh-add -l) ]]; then
-        keychain=" "
-    else
-        keychain="%F{cyan}⚷%f"
-    fi
 }
 
 add-zsh-hook precmd precmd_prompt 
@@ -92,6 +87,6 @@ TRAPALRM () {
 
 
 PROMPT='${psat}${pshost}> '
-RPROMPT='${pspath}${psvcs}${keychain}${pstime}'
+RPROMPT='${pspath}${psvcs}${pstime}'
 
 #EOF vim: ft=zsh
