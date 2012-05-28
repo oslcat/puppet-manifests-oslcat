@@ -1,0 +1,1 @@
+node default inherits core { }

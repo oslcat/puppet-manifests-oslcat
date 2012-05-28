@@ -1,5 +1,7 @@
 class workstation::role::itops(
-  $user = [],
+  $user = undef, 
 ){
- include "workstation::role::itops::$user"
+  class { "workstation::role::itops::$user":
+    username => $user,
+  }
 }
