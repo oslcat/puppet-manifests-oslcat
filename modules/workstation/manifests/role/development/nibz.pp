@@ -8,7 +8,7 @@ class workstation::role::development::nibz(
 
   $pkgs = hiera('pkgs')
   
-  util::system_package {$pkgs:
+  util::system_package {[$pkgs]:
     ensure  => latest;
   }
 }
