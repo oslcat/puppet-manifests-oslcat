@@ -1,2 +1,4 @@
 ---
 pkgs: libnotify-dev
+     latex-beamer 
+     wiki2beamer  
