@@ -6,12 +6,14 @@ node "interceptor.nibalizer.com" {
     'setup':  stage => 'setup';
   }
   
+  #tried *very* hard to get multiple users working here, gave up
+  #include class multiple times i guess? not too sure if that works or not
   class {'workstation::role::development':
-    user => ['nibz'],
+    username => 'nibz',
   }
 
   class {'workstation::role::itops':
-    user => 'nibz',
+    username => 'nibz',
   }
 
 }

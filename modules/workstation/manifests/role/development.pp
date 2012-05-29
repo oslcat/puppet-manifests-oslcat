@@ -1,5 +1,5 @@
 class workstation::role::development(
-  $user = [],
+  $username = undef,
 ){
-  include "workstation::role::development::$user"
+  include "workstation::role::development::$username"
 }

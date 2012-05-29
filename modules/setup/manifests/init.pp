@@ -28,13 +28,13 @@ class setup{
         'hiera':
           provider => gem,
           ensure   => present,
-          require  => Package['rubygems'],
+          require  => Util::System_package['rubygems'],
       }
       util::system_package {
         'hiera-puppet':
           provider => gem,
           ensure   => present,
-          require  => Package['rubygems'],
+          require  => Util::System_package['rubygems'],
       }
       file {
         '/home/nibz/.puppet/hiera.yaml':

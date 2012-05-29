@@ -1,8 +1,14 @@
-class workstation::role::development::nibz{
+class workstation::role::development::nibz(
+){
+  #ugly hax +3 karma for obsoletion
+  $role = "development"
+
   include users::nibz
   include zsh
-  notify {
-    'hai':
-       message => 'hola',
+
+  $pkgs = hiera('pkgs')
+  
+  util::system_package {$pkgs:
+    ensure  => latest;
   }
 }

@@ -1,6 +1,8 @@
 class workstation::role::itops::nibz(
-  $username = undef,
 ){
+  #ugly hax +3 karma for obsoletion
+  $role = "itops"
+
   include users::nibz
   include zsh
 

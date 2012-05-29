@@ -1,11 +1,8 @@
 ---
 :hierarchy:
-    - workstation/itops/%{username}/common
-    - workstation/itops/%{username}/%{operatingsystem} 
-    - workstation/itops/%{username}/%{operatingsystem}/common
-    - workstation/development/%{username}/common
-    - workstation/development/%{username}/%{operatingsystem}
-    - workstation/development/%{username}/%{operatingsystem}/common
+    - workstation/%{role}/%{username}/common
+    - workstation/%{role}/%{username}/%{operatingsystem} 
+    - workstation/%{role}/%{username}/%{operatingsystem}/common
     - workstation/%{operatingsystem} 
     - workstation/common
     - standard/%{operatingsystem} 
