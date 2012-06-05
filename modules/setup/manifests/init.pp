@@ -20,12 +20,10 @@ class setup{
       }
     }
     'Ubuntu': {
-      class { mirror::source:
-        mirror => "puppetlabs",
-      }
-      class { mirror::source:
-        mirror => "cat",
-      }
+
+      include mirror::source::puppetlabs
+      include mirror::source::cat
+
       util::system_package {
         'rubygems':
           ensure   => present,
