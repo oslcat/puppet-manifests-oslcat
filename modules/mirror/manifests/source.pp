@@ -1,5 +1,5 @@
 class mirror::source (
-  $mirror,
+  $mirror
 ) {
 
   if ! ($operatingsystem in ['Ubuntu']) {
@@ -15,6 +15,7 @@ class mirror::source (
   case $mirror {
     'cat': { include mirror::source::cat }
     'osuosl': { include mirror::source::osuosl }
+    'puppetlabs': { include mirror::source::puppetlabs}
     default: { fail("Module does not support '$mirror'") }
   }
 }
