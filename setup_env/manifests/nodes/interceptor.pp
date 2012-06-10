@@ -1,8 +1,7 @@
-node "interceptor.nibalizer.com" {
-  
-  stage { 'setup': before => Stage['main'] }
+$system = true
 
-  class {
-    'setup':  stage => 'setup';
-  }
+node "interceptor.nibalizer.com" {
+
+  include setup
+
 }

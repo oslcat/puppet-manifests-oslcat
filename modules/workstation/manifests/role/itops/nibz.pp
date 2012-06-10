@@ -7,8 +7,9 @@ class workstation::role::itops::nibz(
   include zsh
 
   $pkgs = hiera('pkgs')
+  $dpkgs = split($pkgs, " ")
   
-  util::system_package {$pkgs:
+  util::system_package {$dpkgs:
     ensure  => latest;
   }
 }
