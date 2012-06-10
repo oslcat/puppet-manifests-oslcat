@@ -5,5 +5,4 @@ node "interceptor.nibalizer.com" {
   class {
     'setup':  stage => 'setup';
   }
-  
 }
