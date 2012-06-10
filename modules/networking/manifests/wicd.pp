@@ -1,5 +1,5 @@
 class networking::wicd {
-  util::system_package { "wicd":
+  util::system_package { 'wicd':
     ensure => present,
   }
 }

@@ -1,15 +1,15 @@
 define util::system_package(
   $pkg_name=$title,
-  $ensure="latest",
+  $ensure=latest,
   $provider=undef,
   $source=undef
 ) {
   if $::system {
     package { $title:
-      name     => $pkg_name,
       ensure   => $ensure,
+      name     => $pkg_name,
       provider => $provider,
-      source   => $source;
+      source   => $source,
     }
   }
 }

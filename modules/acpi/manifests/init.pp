@@ -1,22 +1,22 @@
 class acpi {
   util::system_package {
-    "acpi":
+    'acpi':
       ensure => latest;
-    "acpid":
+    'acpid':
       ensure => latest;
   }
 
   if $::system {
-    service {"acpid":
-      path      => "/etc/rc.d",
+    service {'acpid':
       ensure    => running,
+      path      => '/etc/rc.d',
       hasstatus => false,
     }
 
-    file {"acpi_handler":
+    file {'acpi_handler':
+      ensure  => present,
       path    => '/etc/acpi/handler.sh',
       content => template('acpi/handler.sh.erb'),
-      ensure  => present,
     }
 
     Package[acpi] -> Package[acpid] -> File[acpi_handler] -> Service[acpid]

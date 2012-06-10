@@ -3,5 +3,7 @@ class os {
     /Archlinux/: {
       include os::arch
     }
+    default: {
+    }
   }
 }

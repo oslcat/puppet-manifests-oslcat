@@ -1,13 +1,15 @@
 class git ($hub=false) {
-  util::system_package {
-    "git":;
-    "hub":
-      provider => "gem",
-      ensure   => $hub ? {
-        true  => latest,
-        false => absent,
-      };
+  $hub_ensure = $hub ? {
+    true    => latest,
+    default => absent,
   }
 
-  File <| tag == "git" |>
+  util::system_package {
+    'git':;
+    'hub':
+      ensure   => $hub_ensure,
+      provider => 'gem';
+  }
+
+  File <| tag == 'git' |>
 }
