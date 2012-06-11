@@ -25,6 +25,11 @@ class setup{
       include mirror::source::cat
 
       util::system_package {
+        'puppet':
+          ensure   => latest,
+      }
+
+      util::system_package {
         'rubygems':
           ensure   => present,
       }
