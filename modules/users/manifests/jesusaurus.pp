@@ -1,5 +1,6 @@
 class users::jesusaurus (
-  $home = "/home/jesusaurus",
+  $home       = "/home/jesusaurus",
+  $github_key = "$home/.ssh/id_rsa",
 ) inherits users {
 
   user { 'jesusaurus':
@@ -19,6 +20,8 @@ class users::jesusaurus (
     ensure   => latest,
     source   => "git://github.com/jesusaurus/dotFiles.git",
     revision => "$hostname",
+    remote   => "github",
+    identity => $github_key,
     notify   => Exec[ "update-config" ],
     require  => User[ 'jesusaurus' ],
   }
