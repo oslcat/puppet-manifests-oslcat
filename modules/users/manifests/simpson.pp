@@ -25,6 +25,7 @@ class users::simpson ($username='simpson') {
       template => 'users/simpson/vimrc.erb',
     }
 
+    awesome::user_config     { $username: }
     ruby::dev::user_config   { $username: }
     puppet::dev::user_config { $username: }
   }
