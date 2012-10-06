@@ -6,8 +6,13 @@ class mad_base {
   include bash
   include keychain
 
+  util::system_package { "fuse-sshfs":
+    ensure => present,
+  }
+
   include awesome
   include firefox
+  include mplayer
   include puzzles
   include sakura
 

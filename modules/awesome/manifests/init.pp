@@ -12,4 +12,5 @@ class awesome {
     ensure  => present,
     require => Yumrepo["awesome"],
   }
+  File <| tag == "awesome" |>
 }
