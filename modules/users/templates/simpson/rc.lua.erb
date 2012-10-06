@@ -6,6 +6,8 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+-- Widget library
+vicious = require("vicious")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -368,3 +370,68 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+spacer = widget({ type = "textbox" })
+spacer.text = " | "
+
+function grapher ()
+    local g = awful.widget.graph()
+    g:set_width(50)
+    g:set_background_color("#000000")
+    g:set_color("#ff5656")
+    g:set_gradient_colors({"#ff5656", "#88a175", "#aecf96"})
+    return g
+end
+
+cpulabel = widget({ type = "textbox" })
+cpulabel.text = "CPU "
+
+cpu = grapher()
+vicious.register(cpu, vicious.widgets.cpu, "$1", 2)
+
+memorylabel = widget({ type = "textbox" })
+memorylabel.text = "Memory "
+
+memory = grapher()
+vicious.register(memory, vicious.widgets.mem, "$1", 2)
+
+network = widget({ type = "textbox" })
+vicious.register(network, vicious.widgets.net,
+    function(widget, keys)
+        interfaces = {}
+        for k, v in pairs(keys) do
+            matched = k:match("{(.+) ")
+            if matched ~= "lo" and k:find("carrier") and v ~= 0 then
+                table.insert(interfaces, matched)
+            end
+        end
+        if # interfaces == 0 then
+            return "No interfaces are connected!"
+        end
+        partials = {}
+        for unused, i in ipairs(interfaces) do
+            s = i.. ": "
+            s = s .. keys["{" .. i.. " up_kb}"] .. " KiB up, "
+            s = s .. keys["{" .. i.. " down_kb}"] .. " KiB down"
+            table.insert(partials, s)
+        end
+        return table.concat(partials, " | ")
+    end,
+    2)
+
+date = widget({ type = "textbox" })
+vicious.register(date, vicious.widgets.date, "%A, %b %d, %Y | %R", 30)
+
+monitor = awful.wibox({ position = "bottom" })
+monitor.widgets = {
+    cpulabel,
+    cpu,
+    spacer,
+    memorylabel,
+    memory,
+    spacer,
+    network,
+    spacer,
+    date,
+    layout = awful.widget.layout.horizontal.leftright
+}
