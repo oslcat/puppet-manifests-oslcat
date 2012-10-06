@@ -12,6 +12,7 @@ class mad_base {
 
   include awesome
   include firefox
+  include mplayer
   include puzzles
   include sakura
 
