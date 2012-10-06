@@ -23,4 +23,6 @@ define awesome::user_config (
     group   => "users",
     ensure  => present;
   }
+
+  Vcsrepo <| tag == "${title}-awesome-vicious" |>
 }

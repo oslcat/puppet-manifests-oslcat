@@ -16,6 +16,8 @@ class users::simpson ($username='simpson') {
     awesome::user_config     { $username:
       template => "users/simpson/rc.lua.erb",
     }
+    awesome::vicious         { $username: }
+
     bash::user_config        { $username:
       template => 'users/simpson/bashrc.erb',
     }
