@@ -326,17 +326,25 @@ awful.rules.rules = {
                      focus = true,
                      keys = clientkeys,
                      buttons = clientbuttons } },
+    -- mplayer would like to float, especially when it fullscreens.
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
+    -- getpass/askpass/pinentry want to float. This is fine since they are
+    -- transient and will go away shortly.
     { rule = { class = "pinentry" },
       properties = { floating = true } },
+    -- GIMP would like to float its toolboxes.
     { rule = { class = "gimp" },
       properties = { floating = true } },
+    -- Pidgin floats itself by default, but works much better when laid out.
     { rule = { class = "Pidgin" },
       properties = { floating = false } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
+    -- For some annoying reason, Firefox and Thunderbird float themselves, but
+    -- they really should never float. Ever.
+    { rule = { class = "Firefox" },
+      properties = { floating = false } },
+    { rule = { class = "Thunderbird" },
+      properties = { floating = false } },
 }
 -- }}}
 
@@ -419,6 +427,9 @@ vicious.register(network, vicious.widgets.net,
     end,
     2)
 
+bat1 = widget({ type = "textbox" })
+vicious.register(bat1, vicious.widgets.bat, "$1 $2% ($3)", 10, "BAT1")
+
 date = widget({ type = "textbox" })
 vicious.register(date, vicious.widgets.date, "%A, %b %d, %Y | %R", 30)
 
@@ -431,6 +442,8 @@ monitor.widgets = {
     memory,
     spacer,
     network,
+    spacer,
+    bat1,
     spacer,
     date,
     layout = awful.widget.layout.horizontal.leftright
