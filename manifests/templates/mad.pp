@@ -3,6 +3,14 @@ class mad_base {
   include networking
   include networking::wicd
 
+  service { "NetworkManager":
+    enable => false,
+  }
+
+  service { "wicd":
+    enable => true,
+  }
+
   include bash
   include keychain
 
