@@ -24,6 +24,8 @@ class mad_base {
   include puzzles
   include sakura
 
+  include slim
+
   include fonts::inconsolata
 
   include users::simpson

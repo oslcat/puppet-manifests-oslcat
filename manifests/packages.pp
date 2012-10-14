@@ -13,3 +13,4 @@ class htop { util::system_package { "htop": }}
 class ntp { util::system_package { "ntp": }}
 class lftp { util::system_package { "lftp": }}
 class dmenu { util::system_package { "dmenu": }}
+class slim { util::system_package { "slim": }}
