@@ -2,7 +2,6 @@ class bc { util::system_package { "bc": }}
 class curl { util::system_package { "curl": }}
 class keychain { util::system_package { "keychain": }}
 class pacman { util::system_package { "pacman": }}
-class puzzles { util::system_package { "puzzles": }}
 class ncmpcpp { util::system_package { "ncmpcpp": }}
 class pm { util::system_package { "pm-utils": }}
 class wget { util::system_package { "wget": }}
