@@ -1,7 +1,7 @@
 class mad_base {
   include ntp
-  include networking
-  include networking::wicd
+  # include networking
+  # include networking::wicd
 
   service { "NetworkManager":
     enable => false,
