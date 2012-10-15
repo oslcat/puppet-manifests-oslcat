@@ -1,20 +1,5 @@
 class users::nibz($user=true) {
-  $username = 'nibz'
-  $home     = '/home/nibz'
-  $uid      = 1861
-
-  if $system {
-    user { $username:
-      ensure     => present,
-      home       => $home,
-      uid        => $uid,
-      gid        => "users",
-      groups     => ['users',],
-      managehome => true,
-      shell      => '/bin/zsh',
-      require    => Package['zsh'],
-    }
-  }
+  include users::bare::nibz
 
   if ($::system) or ($::id == $username) {
     file {

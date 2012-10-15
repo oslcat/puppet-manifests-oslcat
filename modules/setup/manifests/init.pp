@@ -1,4 +1,6 @@
-class setup{
+class setup(
+  $user,
+){
   case $::operatingsystem {
     'Archlinux': {
       util::system_package {
@@ -19,7 +21,7 @@ class setup{
           content => template('setup/hiera.yaml.erb'),
       }
     }
-    'Ubuntu': {
+    /Ubuntu|Debian/: {
 
       include mirror::source::puppetlabs
       include mirror::source::cat
@@ -46,9 +48,14 @@ class setup{
           require  => Util::System_package['rubygems'],
       }
       file {
-        '/home/nibz/.puppet/hiera.yaml':
+        "/home/$user/.puppet/hiera.yaml":
           ensure  => present,
           content => template('setup/hiera.yaml.erb'),
+	  require => File["/home/$user/.puppet"],
+      }
+      file {
+	"/home/$user/.puppet":
+          ensure => directory,
       }
     }
   }
