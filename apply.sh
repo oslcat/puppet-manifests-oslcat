@@ -12,4 +12,11 @@ else
     ENVIRONMENT="manifests/site.pp"
 fi
 
-${SUDO} puppet apply --modulepath=modules --verbose $* ${ENVIRONMENT}
+if [ -f $HOME/.puppet/hiera.yaml ]; then
+    HIERA="--confdir=$HOME/.puppet"
+    echo OSLCAT: warning: using $HOME/.puppet for hiera
+else
+    HIERA=""
+fi
+
+${SUDO} puppet apply --modulepath=modules ${HIERA} --verbose $* ${ENVIRONMENT}

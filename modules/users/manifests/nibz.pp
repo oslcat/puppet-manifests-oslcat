@@ -56,6 +56,7 @@ class users::nibz($user=true) {
         tag     => "zsh",
         owner   => $username,
         group   => "users",
+	require => File["${username}_zshd"],
         ensure  => present;
       "${username}-01_hash_color":
         path    => "${home}/.zshrc.d/01_hash_color",
@@ -63,6 +64,7 @@ class users::nibz($user=true) {
         tag     => "zsh",
         owner   => $username,
         group   => "users",
+	require => File["${username}_zshd"],
         ensure  => present;
       "${username}-02_signals":
         path    => "${home}/.zshrc.d/02_signals",
@@ -70,6 +72,7 @@ class users::nibz($user=true) {
         tag     => "zsh",
         owner   => $username,
         group   => "users",
+	require => File["${username}_zshd"],
         ensure  => present;
       "${username}-10_autoterm":
         path    => "${home}/.zshrc.d/10_autoterm",
@@ -77,6 +80,7 @@ class users::nibz($user=true) {
         tag     => "zsh",
         owner   => $username,
         group   => "users",
+	require => File["${username}_zshd"],
         ensure  => present;
       "${username}-20_auto_ls":
         path    => "${home}/.zshrc.d/20_auto_ls",
@@ -84,6 +88,7 @@ class users::nibz($user=true) {
         tag     => "zsh",
         owner   => $username,
         group   => "users",
+	require => File["${username}_zshd"],
         ensure  => present;
       "${username}-50_git":
         path    => "${home}/.zshrc.d/50_git",
@@ -91,6 +96,7 @@ class users::nibz($user=true) {
         tag     => "zsh",
         owner   => $username,
         group   => "users",
+	require => File["${username}_zshd"],
         ensure  => present;
       "${username}-51_misc":
         path    => "${home}/.zshrc.d/51_misc",
@@ -98,6 +104,7 @@ class users::nibz($user=true) {
         tag     => "zsh",
         owner   => $username,
         group   => "users",
+	require => File["${username}_zshd"],
         ensure  => present;
       "${username}-90_prompt":
         path    => "${home}/.zshrc.d/90_prompt",
@@ -105,6 +112,7 @@ class users::nibz($user=true) {
         tag     => "zsh",
         owner   => $username,
         group   => "users",
+	require => File["${username}_zshd"],
         ensure  => present;
     }
   }
