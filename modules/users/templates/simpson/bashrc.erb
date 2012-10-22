@@ -122,7 +122,12 @@ alias svngrep="grep --exclude-dir=.svn -R"
 export DEBFULLNAME="Corbin Simpson"
 export DEBEMAIL="MostAwesomeDude@gmail.com"
 
+# Enable extended globs.
+shopt -s extglob
+
+# Enable ** globs.
 shopt -s globstar
 
 # Add all keys to the keychain.
+# This will fail without extended globbing.
 eval `keychain --nogui --eval ~/.ssh/id_!(*.pub)`
